@@ -37,104 +37,102 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[var(--color-brand-white)] border-t border-[var(--color-brand-border)] py-16 relative overflow-hidden text-left">
-      <Container>
-        {/* الهيكل التوجيهي الرئيسي العلوي للتذييل */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-start mb-14">
-          {/* العمود الأول: تقديم الشعار والهوية التعريفية للمؤسسة */}
-          <div className="md:col-span-5 flex flex-col items-start">
+    <footer className="bg-[var(--color-brand-white)] border-t border-[var(--color-brand-border)] py-14 relative overflow-hidden text-left">
+      {/* هالة ضوئية خافتة بالخلفية لكسر الفراغ الأبيض الميت */}
+      <div className="absolute left-1/2 bottom-[-150px] -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-[var(--color-brand-primary)]/3 filter blur-[80px] pointer-events-none select-none" />
+
+      <Container className="relative z-10">
+        {/* الجزء العلوي: الهوية والشعار ممتد بشكل مريح */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 pb-10 border-b border-[var(--color-brand-border)]/50 mb-10">
+          <div className="max-w-xl">
             <Logo showSubline={true} variant="gold" className="mb-4" />
-            <p className="font-sans text-[var(--color-brand-text-secondary)] text-sm leading-relaxed max-w-sm mt-2 font-light">
+            <p className="font-sans text-[var(--color-brand-text-secondary)] text-sm leading-relaxed font-light">
               Pedagogiska utbildningsinsatser, föreläsningar och strukturerat
               studiematerial som förenklar samhällsinformation och skapar trygga
               relationer till svenska myndigheter.
             </p>
           </div>
 
-          {/* العمود الثاني: دليل الروابط السريعة للتنقل الداخلي */}
-          <div className="md:col-span-3">
-            <h4 className="font-sans text-xs font-bold uppercase tracking-widest text-[var(--color-brand-primary)] mb-5">
-              Snabblänkar
-            </h4>
-            <ul className="space-y-3">
+          {/* كبسولة البريد السريع في الجهة المقابلة لملء الفراغ بشكل وظيفي */}
+          <div className="shrink-0 pt-2 lg:pt-0">
+            <a
+              href={`mailto:${BRAND_INFO.email}`}
+              className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-[var(--color-brand-bg)] border border-[var(--color-brand-border)] text-sm font-sans text-[var(--color-brand-text)] hover:border-[var(--color-brand-primary)]/40 hover:bg-[var(--color-brand-white)] hover:shadow-xs transition-all group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] group-hover:border-[var(--color-brand-primary)]/20 flex items-center justify-center text-[var(--color-brand-primary)] transition-colors">
+                <Mail size={14} />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-brand-text-secondary)]">
+                  Frågor? Maila oss
+                </span>
+                <span className="font-semibold text-xs mt-0.5">
+                  {BRAND_INFO.email}
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        {/* الجزء الأوسط: روابط التنقل السريع وقنوات التواصل بشكل شريطي متماسك */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-12">
+          {/* قائمة الروابط منسقة أفقياً Flex-row بدلاً من النزول العمودي المشتت */}
+          <nav aria-label="Footer Navigation">
+            <ul className="flex flex-wrap items-center gap-x-6 gap-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className="font-sans text-sm text-[var(--color-brand-text-secondary)] hover:text-[var(--color-brand-primary)] transition-colors focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)] px-1 py-0.5 rounded-xs"
+                    className="font-sans text-sm font-medium text-[var(--color-brand-text-secondary)] hover:text-[var(--color-brand-primary)] transition-colors focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)] rounded-xs py-1 block relative group"
                   >
                     {link.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[var(--color-brand-primary)] transition-all duration-300 group-hover:w-full" />
                   </a>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* العمود الثالث: قنوات التواصل والروابط الاجتماعية الرسمية */}
-          <div className="md:col-span-4">
-            <h4 className="font-sans text-xs font-bold uppercase tracking-widest text-[var(--color-brand-primary)] mb-5">
-              Kontakt &amp; Kanaler
-            </h4>
-            <ul className="space-y-4">
-              {/* البريد الإلكتروني */}
-              <li>
-                <a
-                  href={`mailto:${BRAND_INFO.email}`}
-                  className="flex items-center gap-3 font-sans text-sm text-[var(--color-brand-text-secondary)] hover:text-[var(--color-brand-primary)] transition-colors focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)] p-0.5 rounded-md"
-                >
-                  <Mail
-                    size={16}
-                    className="text-[var(--color-brand-primary)]"
-                  />
-                  <span>{BRAND_INFO.email}</span>
-                </a>
-              </li>
-              {/* إنستغرام */}
-              <li>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-3 font-sans text-sm text-[var(--color-brand-text-secondary)] hover:text-[var(--color-brand-primary)] transition-colors focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)] p-0.5 rounded-md"
-                >
-                  <Instagram
-                    size={16}
-                    className="text-[var(--color-brand-primary)]"
-                  />
-                  <span>{BRAND_INFO.instagram}</span>
-                </a>
-              </li>
-              {/* فيسبوك */}
-              <li>
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-3 font-sans text-sm text-[var(--color-brand-text-secondary)] hover:text-[var(--color-brand-primary)] transition-colors focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)] p-0.5 rounded-md"
-                >
-                  <Facebook
-                    size={16}
-                    className="text-[var(--color-brand-primary)]"
-                  />
-                  <span>{BRAND_INFO.facebook}</span>
-                </a>
-              </li>
-            </ul>
+          {/* أيقونات التواصل الاجتماعي مصممة كأزرار دائرية مدمجة تقضي على الفراغ */}
+          <div className="flex items-center gap-3">
+            <span className="hidden sm:inline font-sans text-xs font-bold uppercase tracking-widest text-[var(--color-brand-text-secondary)] mr-2">
+              Följ oss:
+            </span>
+
+            <a
+              href="https://www.instagram.com/rs.sociostod"
+              target="_blank"
+              rel="noreferrer"
+              className="w-9 h-9 rounded-full border border-[var(--color-brand-border)] bg-[var(--color-brand-white)] hover:border-[var(--color-brand-primary)] text-[var(--color-brand-text-secondary)] hover:text-[var(--color-brand-primary)] transition-all hover:translate-y-[-2px] duration-300 flex items-center justify-center"
+              aria-label="Instagram"
+            >
+              <Instagram size={16} />
+            </a>
+
+            <a
+              href="https://www.facebook.com/share/1EHYGunjbH/"
+              target="_blank"
+              rel="noreferrer"
+              className="w-9 h-9 rounded-full border border-[var(--color-brand-border)] bg-[var(--color-brand-white)] hover:border-[var(--color-brand-primary)] text-[var(--color-brand-text-secondary)] hover:text-[var(--color-brand-primary)] transition-all hover:translate-y-[-2px] duration-300 flex items-center justify-center"
+              aria-label="Facebook"
+            >
+              <Facebook size={16} />
+            </a>
           </div>
         </div>
 
-        {/* الشريط السفلي الأخير: حقوق الملكية وزر الصعود للأعلى */}
+        {/* الشريط السفلي الأخير: حقوق الملكية وزر الصعود للأعلى (منظم ومحاذى بدقة) */}
         <div className="pt-8 border-t border-[var(--color-brand-border)]/60 flex flex-col sm:flex-row items-center justify-between gap-5 text-xs text-[var(--color-brand-text-secondary)] font-light">
           <div>
-            <p className="font-sans flex items-center gap-1.5 justify-center sm:justify-start">
+            <p className="font-sans flex flex-wrap items-center gap-x-2 gap-y-1 justify-center sm:justify-start text-center sm:text-left">
               <span>
                 © {currentYear} R S Sociostöd. Alla rättigheter förbehållna.
               </span>
               <span className="hidden sm:inline text-[var(--color-brand-border)]">
                 •
               </span>
-              <span className="flex items-center gap-0.5 text-[10px]">
+              <span className="flex items-center gap-1 text-[10px]">
                 Skapad med{" "}
                 <Heart
                   size={10}
@@ -148,7 +146,7 @@ export default function Footer() {
           {/* زر الصعود السلس إلى أعلى الصفحة */}
           <button
             onClick={handleScrollToTop}
-            className="flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--color-brand-border)] hover:border-[var(--color-brand-primary)] hover:text-[var(--color-brand-primary)] transition-all duration-300 bg-[var(--color-brand-bg)] cursor-pointer focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)]"
+            className="flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--color-brand-border)] hover:border-[var(--color-brand-primary)] hover:text-[var(--color-brand-primary)] transition-all duration-300 bg-[var(--color-brand-bg)] cursor-pointer focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)] hover:shadow-xs"
             aria-label="Skrolla upp till toppen"
           >
             <span className="font-sans font-semibold uppercase tracking-wider text-[10px]">

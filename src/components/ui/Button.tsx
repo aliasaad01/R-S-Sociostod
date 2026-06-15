@@ -1,27 +1,24 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion, HTMLMotionProps } from "motion/react";
 
-interface ButtonProps {
+// نقوم بتوسيع الواجهة لتشمل خصائص الـ motion.button الافتراضية بالكامل (والتي تشمل disabled تلقائياً)
+interface ButtonProps extends HTMLMotionProps<"button"> {
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "outline" | "white";
   size?: "sm" | "md" | "lg";
-  onClick?: () => void;
-  type?: "button" | "submit" | "reset";
-  className?: string;
-  id?: string;
+  // الخصائص القديمة مثل onClick, type, id, className أصبحت موروثة تلقائياً ولا داعي لتكرارها هنا
 }
 
 export default function Button({
   children,
   variant = "primary",
   size = "md",
-  onClick,
   type = "button",
   className = "",
-  id,
+  ...props // نجمع باقي الخصائص (مثل disabled، وأي خصائص حركة من Framer Motion) هنا
 }: ButtonProps) {
   const baseStyle =
-    "inline-flex items-center justify-center font-sans font-medium rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-brand-primary)] active:scale-98 cursor-pointer tracking-wide whitespace-nowrap shrink-0";
+    "inline-flex items-center justify-center font-sans font-medium rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-brand-primary)] active:scale-98 cursor-pointer tracking-wide whitespace-nowrap shrink-0 disabled:cursor-not-allowed disabled:opacity-60"; // أضفت لك تنسيق الـ disabled هنا احتياطاً
 
   const variants = {
     primary:
@@ -43,12 +40,9 @@ export default function Button({
 
   return (
     <motion.button
-      // whileHover={{ y: -2, scale: 1.01 }}
-      // whileTap={{ scale: 0.98 }}
-      id={id}
       type={type}
-      onClick={onClick}
       className={`${baseStyle} ${variants[variant]} ${sizes[size]} ${className}`}
+      {...props} // هنا يتم تمرير disabled وكل شيء آخر تلقائياً لـ Framer Motion
     >
       {children}
     </motion.button>

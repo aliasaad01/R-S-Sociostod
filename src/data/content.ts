@@ -14,7 +14,7 @@ export const BRAND_INFO = {
   email: "info@rssociostod.se", //
   instagram: "@rs.sociostod", //
   facebook: "R S Sociostöd", //
-  phoneWhatsApp: "+46700000000",
+  phoneWhatsApp: "+46720444486",
   logoAlt: "R S Sociostöd Logo – Din guide vid myndighetskontakt",
 };
 

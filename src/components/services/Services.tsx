@@ -10,6 +10,47 @@ import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import Card from "../ui/Card";
 
+const boxs = [
+  {
+    id: "forelasningar",
+    iconName: "Presentation",
+    title: "Föreläsningar",
+    description:
+      "Kunskapsbaserade föreläsningar som anpassas efter målgruppens behov och syftar till att stärka förståelse, delaktighet och trygghet i samhället.",
+    features: [
+      "Målgruppsanpassat innehåll",
+      "Fokus på rättigheter & skyldigheter",
+      "Interaktiva diskussioner",
+    ],
+    priceInfo: "Pris baseras på omfattning, tidsåtgång och målgrupp.",
+  },
+  {
+    id: "tematraffar",
+    iconName: "Users",
+    title: "Tematräffar & Workshops",
+    description:
+      "Dialogbaserade träffar som skapar reflektion, kunskapsutbyte och nya perspektiv genom samtal och gruppdiskussioner.",
+    features: [
+      "Praktiska gruppövningar",
+      "Fokus på vardagsnära frågor",
+      "Erfarenhetsutbyte",
+    ],
+    priceInfo: "Pris baseras på omfattning, tidsåtgång och målgrupp.",
+  },
+  {
+    id: "utbildningsmaterial",
+    iconName: "Files",
+    title: "Utbildningsmaterial",
+    description:
+      "Kompendier, deltagarguider och stödmaterial som stärker lärandet före, under och efter utbildningstillfället.",
+    features: [
+      "Klarspråk och enkel svenska",
+      "Anpassat för målgruppen",
+      "Digitalt eller tryckt format",
+    ],
+    priceInfo: "Pris baseras på omfattning och komplexitet.",
+  },
+];
 export default function Services() {
   // ربط أسماء الأيقونات بمكونات Lucide ديناميكياً
   const getIcon = (iconName: string, className: string) => {
@@ -61,52 +102,12 @@ export default function Services() {
         {/* شبكة توزيع الخدمات الثلاثة الأساسية */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-stretch">
           {/* سنقوم بإنتاج البطاقات بالاعتماد على مصفوفة البيانات المحمية */}
-          {[
-            {
-              id: "forelasningar",
-              iconName: "Presentation",
-              title: "Föreläsningar",
-              description:
-                "Kunskapsbaserade föreläsningar som anpassas efter målgruppens behov och syftar till att stärka förståelse, delaktighet och trygghet i samhället.",
-              features: [
-                "Målgruppsanpassat innehåll",
-                "Fokus på rättigheter & skyldigheter",
-                "Interaktiva diskussioner",
-              ],
-              priceInfo: "Pris baseras på omfattning, tidsåtgång och målgrupp.",
-            },
-            {
-              id: "tematraffar",
-              iconName: "Users",
-              title: "Tematräffar & Workshops",
-              description:
-                "Dialogbaserade träffar som skapar reflektion, kunskapsutbyte och nya perspektiv genom samtal och gruppdiskussioner.",
-              features: [
-                "Praktiska gruppövningar",
-                "Fokus på vardagsnära frågor",
-                "Erfarenhetsutbyte",
-              ],
-              priceInfo: "Pris baseras på omfattning, tidsåtgång och målgrupp.",
-            },
-            {
-              id: "utbildningsmaterial",
-              iconName: "Files",
-              title: "Utbildningsmaterial",
-              description:
-                "Kompendier, deltagarguider och stödmaterial som stärker lärandet före, under och efter utbildningstillfället.",
-              features: [
-                "Klarspråk och enkel svenska",
-                "Anpassat för målgruppen",
-                "Digitalt eller tryckt format",
-              ],
-              priceInfo: "Pris baseras på omfattning och komplexitet.",
-            },
-          ].map((service, index) => (
+          {boxs.map((service, index) => (
             <Card
               key={service.id}
               delay={index * 0.1}
               hoverEffect={true}
-              className="group flex flex-col justify-between h-full bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] text-left p-8 sm:p-9 relative"
+              className="group flex flex-col justify-between h-full bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] text-left p-8 sm:p-9 relative overflow-hidden"
             >
               <div>
                 {/* الرقم الخلفي الجمالي للبطاقة يتفاعل عند تمرير الماوس */}

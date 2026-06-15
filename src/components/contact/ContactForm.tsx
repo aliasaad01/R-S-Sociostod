@@ -58,6 +58,9 @@ export default function ContactForm() {
   });
 
   const onSubmit = async (data: ContactFormFields) => {
+    // جدار حماية إضافي لمنع تكرار الإرسال في الخلفية
+    if (isSubmitting) return;
+
     setIsSubmitting(true);
 
     // محاكاة تأخير زمني واقعي لاعتماد وإرسال البيانات عبر السيرفر
@@ -127,7 +130,7 @@ export default function ContactForm() {
               {/* حساب الإنستغرام */}
               <motion.a
                 whileHover={{ x: 4 }}
-                href="https://instagram.com"
+                href="https://www.instagram.com/rs.sociostod"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-4 p-4 rounded-2xl border border-[var(--color-brand-border)] bg-[var(--color-brand-white)] shadow-xs hover:border-[var(--color-brand-primary)]/40 transition-colors group focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)]"
@@ -148,7 +151,7 @@ export default function ContactForm() {
               {/* صفحة الفيسبوك */}
               <motion.a
                 whileHover={{ x: 4 }}
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/1EHYGunjbH/"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-4 p-4 rounded-2xl border border-[var(--color-brand-border)] bg-[var(--color-brand-white)] shadow-xs hover:border-[var(--color-brand-primary)]/40 transition-colors group focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)]"
@@ -200,9 +203,10 @@ export default function ContactForm() {
                   <input
                     type="text"
                     id="name"
+                    disabled={isSubmitting}
                     {...register("name")}
                     placeholder="För- och efternamn"
-                    className={`w-full font-sans bg-[var(--color-brand-bg)] border rounded-xl px-4 py-3 text-[var(--color-brand-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 ${
+                    className={`w-full font-sans bg-[var(--color-brand-bg)] border rounded-xl px-4 py-3 text-[var(--color-brand-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 disabled:opacity-60 disabled:cursor-not-allowed ${
                       errors.name
                         ? "border-red-400"
                         : "border-[var(--color-brand-border)] focus:border-[var(--color-brand-primary)]"
@@ -228,9 +232,10 @@ export default function ContactForm() {
                   <input
                     type="email"
                     id="email"
+                    disabled={isSubmitting}
                     {...register("email")}
                     placeholder="exempel@organisation.se"
-                    className={`w-full font-sans bg-[var(--color-brand-bg)] border rounded-xl px-4 py-3 text-[var(--color-brand-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 ${
+                    className={`w-full font-sans bg-[var(--color-brand-bg)] border rounded-xl px-4 py-3 text-[var(--color-brand-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 disabled:opacity-60 disabled:cursor-not-allowed ${
                       errors.email
                         ? "border-red-400"
                         : "border-[var(--color-brand-border)] focus:border-[var(--color-brand-primary)]"
@@ -256,9 +261,10 @@ export default function ContactForm() {
                   <input
                     type="text"
                     id="organisation"
+                    disabled={isSubmitting}
                     {...register("organisation")}
                     placeholder="T.ex. Studieförbundet, Komvux, etc."
-                    className={`w-full font-sans bg-[var(--color-brand-bg)] border rounded-xl px-4 py-3 text-[var(--color-brand-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 ${
+                    className={`w-full font-sans bg-[var(--color-brand-bg)] border rounded-xl px-4 py-3 text-[var(--color-brand-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 disabled:opacity-60 disabled:cursor-not-allowed ${
                       errors.organisation
                         ? "border-red-400"
                         : "border-[var(--color-brand-border)] focus:border-[var(--color-brand-primary)]"
@@ -284,9 +290,10 @@ export default function ContactForm() {
                   <textarea
                     id="message"
                     rows={5}
+                    disabled={isSubmitting}
                     {...register("message")}
                     placeholder="Berätta kortfattat om era önskemål, uppskattat antal deltagare och tidsram..."
-                    className={`w-full font-sans bg-[var(--color-brand-bg)] border rounded-xl px-4 py-3 text-[var(--color-brand-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 resize-y min-h-[120px] ${
+                    className={`w-full font-sans bg-[var(--color-brand-bg)] border rounded-xl px-4 py-3 text-[var(--color-brand-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 resize-y min-h-[120px] disabled:opacity-60 disabled:cursor-not-allowed ${
                       errors.message
                         ? "border-red-400"
                         : "border-[var(--color-brand-border)] focus:border-[var(--color-brand-primary)]"
@@ -306,7 +313,8 @@ export default function ContactForm() {
                     type="submit"
                     variant="primary"
                     size="lg"
-                    className="w-full justify-center group"
+                    disabled={isSubmitting}
+                    className="w-full justify-center group disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">

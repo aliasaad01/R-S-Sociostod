@@ -12,6 +12,17 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("hem");
 
   useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"; // قفل السكرول الخلفي
+    } else {
+      document.body.style.overflow = ""; // إعادة السكرول لطبيعته
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 40) {
         setScrolled(true);
@@ -19,7 +30,6 @@ export default function Navbar() {
         setScrolled(false);
       }
 
-      // حساب مكان السكرول لتحديد القسم النشط في القائمة تلقائياً
       const scrollPosition = window.scrollY + 200;
       const sections = [
         "hem",
@@ -51,62 +61,68 @@ export default function Navbar() {
     href: string,
   ) => {
     e.preventDefault();
+
+    // نغلق القائمة أولاً
     setIsOpen(false);
 
-    const targetId = href.replace("#", "");
-    const element = document.getElementById(targetId);
-    if (element) {
-      const offset = 65; // المسافة الآمنة لتعويض ارتفاع الهيدر الثابت
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+    // نؤجل السكرول لمحة بسيطة جداً لضمان تحرير أحداث اللمس بالمتصفح على الموبايل
+    setTimeout(() => {
+      const targetId = href.replace("#", "");
+      const element = document.getElementById(targetId);
+      if (element) {
+        const offset = 65;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 50);
   };
 
   const handleCtaClick = () => {
     setIsOpen(false);
-    const element = document.getElementById("kontakt");
-    if (element) {
-      const offset = 65;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+    setTimeout(() => {
+      const element = document.getElementById("kontakt");
+      if (element) {
+        const offset = 65;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 50);
   };
 
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[var(--color-brand-bg)]/90 backdrop-blur-md  border-[var(--color-brand-border)]/60 py-3 shadow-xs"
+          ? "bg-[var(--color-brand-bg)]/90 backdrop-blur-md border-[var(--color-brand-border)]/60 py-3 shadow-xs"
           : "bg-transparent py-5"
       }`}
     >
       <Container>
         <div className="flex items-center justify-between">
-          {/* لوغو المؤسسة كرابط للرئيسية */}
           <a
             href="#hem"
             onClick={(e) => handleLinkClick(e, "#hem")}
-            className="focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/50 rounded-xl"
+            className="focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/50 rounded-xl z-50"
             aria-label="R S Sociostöd Hem"
           >
             <Logo />
           </a>
 
-          {/* القائمة العلوية لنسخة الشاشات الكبيرة Desktop */}
+          {/* القائمة العلوية لشاشات الـ Desktop */}
           <nav className="hidden lg:flex items-center gap-7">
             {NAV_LINKS.map((link) => {
               const cleanedHref = link.href.replace("#", "");
@@ -139,34 +155,38 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* زر طلب الخدمة لنسخة الـ Desktop */}
           <div className="hidden lg:block">
             <Button variant="primary" size="sm" onClick={handleCtaClick}>
               Skicka intresseanmälan
             </Button>
           </div>
 
-          {/* زر التحكم بالقائمة للهواتف الذكية Mobile Menu Toggle */}
+          {/* زر الموبايل هامبرغر */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-xl border border-[var(--color-brand-border)]/85 bg-[var(--color-brand-white)] text-[var(--color-brand-text)] hover:bg-[var(--color-brand-bg)] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/50"
-            aria-label="Öppna meny"
+            className="lg:hidden p-2 rounded-xl border border-[var(--color-brand-border)]/85 bg-[var(--color-brand-white)] text-[var(--color-brand-text)] cursor-pointer z-50 relative"
+            aria-label={isOpen ? "Stäng meny" : "Öppna meny"}
             aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </Container>
 
-      {/* القائمة المنسدلة للهواتف الذكية Mobile Drawer */}
+      {/* القائمة المنسدلة للموبايل Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden w-full bg-[var(--color-brand-bg)] border-b border-[var(--color-brand-border)] absolute top-full left-0 overflow-hidden shadow-lg"
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            id="mobile-navigation"
+            role="navigation"
+            aria-label="Mobilmeny"
+            // أضفنا pointer-events-auto هنا لضمان وصول النقرات للروابط الداخلية دائماً
+            className="lg:hidden w-full bg-[var(--color-brand-bg)] border-b border-[var(--color-brand-border)] absolute top-full left-0 shadow-lg pointer-events-auto z-40"
           >
             <div className="px-5 py-6 flex flex-col gap-4 bg-[var(--color-brand-white)] border-t border-[var(--color-brand-border)]/50">
               <nav className="flex flex-col gap-3">
@@ -178,7 +198,7 @@ export default function Navbar() {
                       key={link.href}
                       href={link.href}
                       onClick={(e) => handleLinkClick(e, link.href)}
-                      className={`flex items-center justify-between font-sans text-base font-semibold py-2 px-3 rounded-lg transition-colors ${
+                      className={`flex items-center justify-between font-sans text-base font-semibold py-2 px-3 rounded-lg transition-colors cursor-pointer touch-latency ${
                         isActive
                           ? "bg-[var(--color-brand-bg)] text-[var(--color-brand-primary)] pl-4"
                           : "text-[var(--color-brand-text)]/90 hover:bg-[var(--color-brand-bg)]/50 hover:text-[var(--color-brand-primary)]"

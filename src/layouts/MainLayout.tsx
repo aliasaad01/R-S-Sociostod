@@ -14,15 +14,15 @@ export default function MainLayout({ children }: MainLayoutProps) {
   const pageDescription =
     "Professionell studievägledning, föreläsningar och studiematerial i samhällskunskap och integration av socionom Rascha Skef. Skapa trygghet hos er målgrupp.";
   const siteUrl = "https://rssociostod.se";
+  const ogImageUrl = `${siteUrl}/og-image.jpg`;
 
-  // البيانات المنظمة المهيأة لمحركات البحث وجوجل (JSON-LD Schema)
   const ldJsonData = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     name: "R S Sociostöd",
     description: pageDescription,
     url: siteUrl,
-    logo: "https://rssociostod.se/favicon.PNG",
+    logo: `${siteUrl}/favicon.PNG`,
     founder: {
       "@type": "Person",
       name: "Rascha Skef",
@@ -48,50 +48,51 @@ export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <HelmetProvider>
       <div className="min-h-screen bg-[var(--color-brand-bg)] text-[var(--color-brand-text)] font-sans antialiased relative">
-        {/* حقن وإدارة بيانات الميتا تاق والسيو عبر React Helmet Async */}
+        {/* إدارة وسوم الميتا تاق بالكامل من مكان واحد مركزي وديناميكي */}
         <Helmet>
           <html lang="sv" />
           <title>{pageTitle}</title>
           <meta name="description" content={pageDescription} />
           <link rel="canonical" href={siteUrl} />
 
-          {/* إعدادات أبعاد الشاشة لضمان التوافقية والتجاوب المطلق مع الهواتف الذكية */}
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=5"
-          />
-
-          {/* وسم الميتا الخاص بمواقع التواصل الاجتماعي (OpenGraph) */}
+          {/* وسم الميتا الخاص بمواقع التواصل الاجتماعي وعرض كروت الروابط الافتراضية للواتساب */}
           <meta property="og:title" content={pageTitle} />
           <meta property="og:description" content={pageDescription} />
           <meta property="og:type" content="website" />
           <meta property="og:url" content={siteUrl} />
           <meta property="og:site_name" content="R S Sociostöd" />
           <meta property="og:locale" content="sv_SE" />
+          <meta property="og:image" content={ogImageUrl} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta
+            property="og:image:alt"
+            content="R S Sociostöd – Kunskap som stärker"
+          />
 
-          {/* وسم الميتا المخصص لمنصة X (تويتر سابقاً) */}
+          {/* وسم الميتا المخصص لمشاركات منصة X (تويتر سابقاً) */}
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={pageTitle} />
           <meta name="twitter:description" content={pageDescription} />
+          <meta name="twitter:image" content={ogImageUrl} />
 
-          {/* حقن مخطط الـ JSON-LD الموثق داخل الـ Head تلقائياً */}
+          {/* حقن البيانات المنظمة النظيفة داخل الـ <head> */}
           <script type="application/ld+json">
             {JSON.stringify(ldJsonData)}
           </script>
         </Helmet>
 
-        {/* شريط التنقل العلوي الثابت والشفاف (Transparent Sticky Header) */}
+        {/* المكونات الهيكلية الرئيسية الثابتة للموقع */}
         <Navbar />
 
-        {/* الحاضن الرئيسي الدلالي لمحتوى صفحات الموقع المتغيرة */}
-        <main id="main-content" className="relative z-10">
+        {/* الحاضن الدلالي للمحتوى المتغير */}
+        <main id="main-content" className="relative z-10 focus:outline-none">
           {children}
         </main>
 
-        {/* كتلة التذييل السفلية المتكاملة */}
         <Footer />
 
-        {/* مساعد الواتساب العائم للتواصل الفوري السريع */}
+        {/* أداة التواصل العائمة */}
         <WhatsAppAssistant />
       </div>
     </HelmetProvider>

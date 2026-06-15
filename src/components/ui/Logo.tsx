@@ -27,14 +27,17 @@ export default function Logo({
       <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center shrink-0">
         <img
           src="/favicon.PNG"
-          alt="R S Sociostöd logotyp"
+          alt="R S Sociostöd logotyp – Kunskap som stärker"
           className="w-full h-full object-contain"
           loading="eager"
         />
       </div>
 
       {/* النصوص الجانبية المرافقة للشعار */}
-      <div className="flex flex-col justify-center text-left">
+      <div
+        className="flex flex-col justify-center text-left"
+        aria-hidden="true"
+      >
         <span
           className={`title-font font-bold uppercase tracking-wider text-xs sm:text-sm md:text-base leading-none ${textClass}`}
         >

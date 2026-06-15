@@ -4,13 +4,14 @@
   "description": "Föreläsningar, Samhällspedagogik & Myndighetskontakt",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#b89855",
+  "background_color": "#2B2B2B",
+  "theme_color": "#C9933B",
   "icons": [
     {
       "src": "/favicon.PNG",
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
