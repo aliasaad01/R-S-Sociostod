@@ -20,7 +20,7 @@ export default function WhatsAppAssistant() {
     }
   }, [isOpen]);
 
-  const whatsappNumber = "46700000000"; // رقم الواتساب السويدي المعتمد للمؤسسة
+  const whatsappNumber = "46720444486"; // رقم الواتساب السويدي المعتمد للمؤسسة
 
   const assistantOptions = [
     {
