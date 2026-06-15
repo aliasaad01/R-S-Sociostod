@@ -1,0 +1,70 @@
+/* 1. الاستيراد الخارجي للخطوط يجب أن يكون في أول السطر */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* تم استبدال Inter بـ Plus Jakarta Sans لأنه أنعم وأجمل مع الخطوط الذهبية */
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, Cambria, serif;
+
+  /* الألوان المعتمدة والدقيقة من الهوية البصرية */
+  --color-brand-bg: #f8f3ec;
+  --color-brand-card: #fcf9f5; /* لون الكروت المشرق في التصميم */
+  --color-brand-primary: #c9933b; /* الذهبي الأساسي */
+  --color-brand-primary-dark: #a77428; /* الذهبي عند التمرير Hover */
+  --color-brand-text: #2b2b2b; /* البني/الرمادي الداكن للنصوص */
+  --color-brand-text-secondary: #5a5a5a; /* للنصوص الفرعية */
+  --color-brand-border: #e6ddd1;
+  --color-brand-white: #ffffff;
+
+  /* في Tailwind v4، نعرّف الأنيميشن والـ keyframes داخل الـ @theme مباشرة */
+  --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* التنسيقات الأساسية لعناصر الهيكل */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* كلاسات مساعدة مريحة للخطوط */
+.font-heading {
+  font-family: var(--font-serif);
+}
+
+.font-body {
+  font-family: var(--font-sans);
+}
+
+/* ستايل متناسق وفخم للـ Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-border);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-primary);
+}

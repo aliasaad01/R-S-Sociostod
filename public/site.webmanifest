@@ -1,0 +1,16 @@
+{
+  "name": "R S Sociostöd",
+  "short_name": "Sociostöd",
+  "description": "Föreläsningar, Samhällspedagogik & Myndighetskontakt",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#b89855",
+  "icons": [
+    {
+      "src": "/favicon.PNG",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
