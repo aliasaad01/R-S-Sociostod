@@ -18,8 +18,8 @@ export const NAV_LINKS = [
 ];
 
 export const IMAGES = {
-  heroLifestyle: "/src/assets/images/hero.jpg",
-  raschaPortrait: "/src/assets/images/rascha.jpg",
+  heroLifestyle: "/images/hero.jpg",
+  raschaPortrait: "/images/rascha.jpg",
 };
 
 export const WHATS_APP_PREFILLS = {
