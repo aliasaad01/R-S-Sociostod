@@ -47,7 +47,7 @@ export const THEME_ITEMS: ThemeItem[] = [
     id: "samhallsforstaelse",
     title: "Samhällsförståelse", //
     description:
-      "Kunskap som hjälper deltagare att förstå hur samhället fungerar, vilka rättigheter och skyldigheter vi har samt vart man kan vända sig för information, stöd och service.", //
+      "Vi gör det lättare att förstå hur samhället fungerar, vilka rättigheter och skyldigheter vi har och vart man kan vända sig för information, stöd och service.", //
     iconName: "Globe",
     highlights: [
       "Demokratins grundpelare",
@@ -60,7 +60,7 @@ export const THEME_ITEMS: ThemeItem[] = [
     id: "myndighetskontakt",
     title: "Myndighetskontakt & delaktighet", //
     description:
-      "Föreläsningar som stärker tryggheten i kontakt med myndigheter och ger ökad förståelse för information, kommunikation och samhällets olika funktioner.", //
+      "Vi stärker tryggheten i kontakten med myndigheter genom ökad förståelse för information, beslut och den egna möjligheten att vara delaktig.", //
     iconName: "ShieldCheck",
     highlights: [
       "Bemötande och rättssäkerhet",
@@ -73,7 +73,7 @@ export const THEME_ITEMS: ThemeItem[] = [
     id: "samhallsformation",
     title: "Samhällsinformation & orientering", //
     description:
-      "Kunskap om samhällets funktioner, service och offentliga information. Vi ger en helhetsbild av hur samhället är uppbyggt och hur olika verksamheter, regler och processer fungerar i praktiken. Fokus ligger på allmän information som stärker förstäelse, delaktighet och möjligheten att orientera sig i samhället.", //
+      "Vi hjälper människor att hitta rätt i samhället genom kunskap om offentliga verksamheter, samhällsfunktioner och praktiska vägar till information och stöd.", //
     iconName: "FileText",
     highlights: [
       "Lagar och förordningar i praktiken",
@@ -134,42 +134,42 @@ export const AUDIENCE_ITEMS: AudienceItem[] = [
     id: "studieforbund",
     title: "Studieförbund", //
     description:
-      "För studiecirklar och bildningsverksamheter som vill erbjuda folkbildande kurser i praktisk samhällskunskap och mänskliga rättigheter.",
+      "För studieförbund som vill erbjuda praktisk samhällskunskap och skapa större förståelse för rättigheter, skyldigheter och hur samhället fungerar i vardagen.",
     iconName: "BookOpen",
   },
   {
     id: "foreningar",
     title: "Föreningar", //
     description:
-      "För lokala och nationella föreningar som vill erbjuda sina medlemmar konkreta verktyg för att navigera det svenska samhället och dess stödsystem.",
+      "För föreningar som vill stärka sina medlemmars kunskap om samhället och skapa trygghet i kontakt med myndigheter och olika samhällsfunktioner.",
     iconName: "HeartHandshake",
   },
   {
     id: "folkhogskolor",
     title: "Folkhögskolor", //
     description:
-      "Föreläsningar anpassade för deltagare på allmän kurs eller etableringskurser som behöver stärka sin förståelse för det svenska systemet.",
+      "Föreläsningar anpassade för folkhögskolor som vill ge deltagarna ökad förståelse för det svenska samhället och stärka deras trygghet i vardagliga samhällskontakter.",
     iconName: "GraduationCap",
   },
   {
     id: "komvux",
     title: "Komvux & Vuxenutbildning", //
     description:
-      "Komplement till SFI och samhällsorientering (SO) för att ge studerande ökad förtrogenhet med myndighetskontakt och medborgerliga rättigheter.",
+      "Ett komplement till befintlig undervisning som ger deltagarna ökad kunskap om samhället, myndighetskontakt samt rättigheter och skyldigheter.",
     iconName: "Award",
   },
   {
     id: "ideella",
     title: "Ideella organisationer", //
     description:
-      "Insatser och inspirationsföreläsningar för volontärer samt anställda som möter målgrupper med behov av vägledning i samhällskontakter.",
+      "För ideella organisationer som vill stärka kunskap och förståelse hos deltagare, volontärer eller medarbetare genom lättillgänglig samhällsinformation.",
     iconName: "Users",
   },
   {
     id: "verksamheter",
     title: "Offentliga verksamheter", //
     description:
-      "För kommunala enheter, integrationsprojekt eller arbetsmarknadsenheter som vill stärka medborgarnas delaktighet och kunskap.",
+      "För kommunala verksamheter och projekt som vill öka kunskap, delaktighet och trygghet genom pedagogiska utbildningsinsatser.",
     iconName: "Building2",
   },
 ];

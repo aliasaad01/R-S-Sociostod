@@ -1,53 +1,90 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  MessageCircle,
+  Mail,
   X,
   ChevronRight,
   HelpCircle,
   Sparkles,
+  Presentation,
+  Users2,
+  FileText,
+  Sliders,
+  BookOpen,
+  HelpCircle as QuestionIcon,
 } from "lucide-react";
 import { WHATS_APP_PREFILLS } from "../../utils/constants";
 
-export default function WhatsAppAssistant() {
+export default function EmailAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [pulse, setPulse] = useState(true);
 
   useEffect(() => {
-    // إيقاف حركة النبض الأولية بمجرد تفاعل المستخدم وفتح الصندوق لأول مرة
     if (isOpen) {
       setPulse(false);
     }
   }, [isOpen]);
 
-  const whatsappNumber = "46720444486"; // رقم الواتساب السويدي المعتمد للمؤسسة
+  // البريد الإلكتروني الرسمي المعتمد للمؤسسة
+  const companyEmail = "info@rssociostod.se";
 
   const assistantOptions = [
     {
       label: "Föreläsningar",
       text: WHATS_APP_PREFILLS.forelasningar,
-      description: "Förfrågningar om föredrag & tillfällen",
+      subject: "Fråga om föreläsningar - R S Sociostöd",
+      description: "Frågor om föreläsningar och utbildningsupplägg",
+      icon: (
+        <Presentation size={16} className="text-[var(--color-brand-primary)]" />
+      ),
     },
     {
-      label: "Tematräffar",
+      label: "Tematräffar & workshops",
       text: WHATS_APP_PREFILLS.tematraffar,
-      description: "Frågor om interaktiva workshops",
+      subject: "Fråga om tematräffar - R S Sociostöd",
+      description: "Dialogbaserade träffar och gruppaktiviteter",
+      icon: <Users2 size={16} className="text-[var(--color-brand-primary)]" />,
     },
     {
-      label: "Priser & offert",
+      label: "Offert & prisförslag",
       text: WHATS_APP_PREFILLS.priser,
-      description: "Prisuppgifter för förening/skola",
+      subject: "Förfrågan om offert - R S Sociostöd",
+      description: "Begär offert eller ställ frågor om kostnader",
+      icon: (
+        <FileText size={16} className="text-[var(--color-brand-primary)]" />
+      ),
     },
     {
-      label: "Allmän kontakt",
-      text: WHATS_APP_PREFILLS.kontakt,
-      description: "Prata med Rascha Skef för rådgivning",
+      label: "Anpassat upplägg",
+      text: WHATS_APP_PREFILLS.anpassat,
+      subject: "Fråga om anpassat upplägg - R S Sociostöd",
+      description:
+        "Vi hjälper er att hitta rätt upplägg utifrån målgrupp och behov",
+      icon: <Sliders size={16} className="text-[var(--color-brand-primary)]" />,
+    },
+    {
+      label: "Utbildningsmaterial",
+      text: WHATS_APP_PREFILLS.utbildningsmaterial,
+      subject: "Fråga om utbildningsmaterial - R S Sociostöd",
+      description: "Frågor om kompendier, deltagarguider och stödmaterial",
+      icon: (
+        <BookOpen size={16} className="text-[var(--color-brand-primary)]" />
+      ),
+    },
+    {
+      label: "Övriga frågor",
+      text: WHATS_APP_PREFILLS.frågor,
+      subject: "Allmän förfrågan - R S Sociostöd",
+      description: "Har du en annan fråga? Skicka ett meddelande till oss.",
+      icon: (
+        <QuestionIcon size={16} className="text-[var(--color-brand-primary)]" />
+      ),
     },
   ];
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-      {/* صندوق المحادثة المساعد العائم مع مؤثرات الدخول والخروج الحركية */}
+      {/* صندوق المحادثة المساعد العائم */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -61,7 +98,7 @@ export default function WhatsAppAssistant() {
             <div className="bg-[var(--color-brand-primary)] p-5 text-white text-left relative flex items-center gap-3">
               <div className="relative w-10 h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/25 shrink-0">
                 <Sparkles size={18} className="text-white animate-pulse" />
-                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-green-400 border border-[var(--color-brand-primary)]" />
+                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-blue-400 border border-[var(--color-brand-primary)]" />
               </div>
 
               <div className="flex-1">
@@ -69,7 +106,7 @@ export default function WhatsAppAssistant() {
                   Sociostöd-Guide
                 </h4>
                 <span className="font-sans text-[10px] text-white/80 leading-none block mt-1">
-                  Svarar vanligtvis direkt
+                  Svarar vanligtvis snabbt via e-post
                 </span>
               </div>
 
@@ -82,35 +119,46 @@ export default function WhatsAppAssistant() {
               </button>
             </div>
 
-            {/* جسم نافذة المساعد ويحتوي على رسالة الترحيب والخيارات المتاحة (Body) */}
+            {/* جسم نافذة المساعد يحتوي على الرسالة والخيارات (Body) */}
             <div className="p-5 bg-[var(--color-brand-bg)]/40 max-h-[350px] overflow-y-auto">
-              {/* فقاعة الترحيب الذكية لـ بوت التوجيه */}
+              {/* فقاعة الترحيب الذكية */}
               <div className="bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] rounded-2xl rounded-tl-none p-4 text-left shadow-xs mb-5">
                 <p className="font-sans text-xs text-[var(--color-brand-text)] leading-relaxed">
                   Hej 👋
                 </p>
                 <p className="font-sans text-xs text-[var(--color-brand-text)] leading-relaxed mt-1">
                   Jag hjälper dig gärna att komma i kontakt med R S Sociostöd
-                  direkt på WhatsApp. Vad är du nyfiken på idag?
+                  via e-post. Välj ett ämne nedan så förbereder vi ditt
+                  meddelande direkt. <br />
+                  Svarar vanligtvis inom 1-2 dagar
                 </p>
               </div>
 
-              {/* أزرار مسارات التوجيه المسبقة الإعداد لفتح الواتساب مباشرة */}
+              {/* أزرار مسارات التوجيه عبر البريد الإلكتروني */}
               <div className="space-y-2">
                 {assistantOptions.map((opt, idx) => {
-                  const prefilledUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(opt.text)}`;
+                  // بناء هيكل الإيميل التلقائي مع ملء الفراغات ديناميكياً
+                  const defaultBody = opt.text
+                    ? opt.text
+                    : `Hej R S Sociostöd,\n\nJag är intresserad av ert upplägg gällande "${opt.label}" och skulle vilja ha mer information.\n\nMed vänliga hälsningar,`;
+
+                  const mailtoUrl = `mailto:${companyEmail}?subject=${encodeURIComponent(opt.subject)}&body=${encodeURIComponent(defaultBody)}`;
+
                   return (
                     <motion.a
                       key={idx}
-                      href={prefilledUrl}
-                      target="_blank"
-                      rel="noreferrer"
+                      href={mailtoUrl}
                       whileHover={{
                         x: 3,
                         backgroundColor: "var(--color-brand-white)",
                       }}
                       className="flex items-center justify-between p-3 rounded-xl border border-[var(--color-brand-border)] bg-[var(--color-brand-white)]/60 hover:border-[var(--color-brand-primary)]/45 transition-colors text-left group focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)]"
                     >
+                      {/* الأيقونة المخصصة الذكية المضافة حديثاً */}
+                      <div className="w-8 h-8 rounded-lg bg-[var(--color-brand-bg)] border border-[var(--color-brand-border)] flex items-center justify-center shrink-0 mr-3 group-hover:border-[var(--color-brand-primary)]/20 transition-colors">
+                        {opt.icon}
+                      </div>
+
                       <div className="flex-1 pr-2">
                         <span className="block font-sans font-semibold text-xs text-[var(--color-brand-text)]">
                           {opt.label}
@@ -119,6 +167,7 @@ export default function WhatsAppAssistant() {
                           {opt.description}
                         </span>
                       </div>
+
                       <ChevronRight
                         size={14}
                         className="text-[var(--color-brand-text-secondary)]/60 group-hover:text-[var(--color-brand-primary)] group-hover:translate-x-0.5 transition-all shrink-0"
@@ -129,10 +178,10 @@ export default function WhatsAppAssistant() {
               </div>
             </div>
 
-            {/* شريط ذيل النافذة لتأكيد الأمان الموثق */}
+            {/* شريط ذيل النافذة */}
             <div className="px-5 py-3 border-t border-[var(--color-brand-border)] bg-[var(--color-brand-white)] flex items-center justify-between text-[10px] text-[var(--color-brand-text-secondary)]">
               <span className="flex items-center gap-1 font-sans">
-                <HelpCircle size={11} /> Öppnas säkert i WhatsApp
+                <HelpCircle size={11} /> Öppnas i ditt e-postprogram
               </span>
               <span className="font-sans font-semibold text-[var(--color-brand-primary)] uppercase">
                 RS Sociostöd
@@ -142,9 +191,9 @@ export default function WhatsAppAssistant() {
         )}
       </AnimatePresence>
 
-      {/* زر الإطلاق الدائري الثابت بأسفل الشاشة والمزود بنبض إشعار جذب الانتباه */}
+      {/* زر الإطلاق الدائري المحدث بأيقونة الـ Mail */}
       <motion.button
-        id="whatsapp-assistant-trigger"
+        id="email-assistant-trigger"
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -155,17 +204,17 @@ export default function WhatsAppAssistant() {
             : {}
         }
         className="w-14 h-14 rounded-full bg-[var(--color-brand-primary)] text-white border border-[var(--color-brand-primary)]/20 flex items-center justify-center shadow-xl hover:opacity-90 transition-opacity cursor-pointer relative focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)] focus:ring-offset-2"
-        aria-label="Öppna WhatsApp assistent"
+        aria-label="Öppna e-post assistent"
         aria-expanded={isOpen}
       >
         {isOpen ? (
           <X size={24} />
         ) : (
           <>
-            <MessageCircle size={24} className="animate-pulse" />
+            <Mail size={24} className="animate-pulse" />
             <span className="absolute -top-1 -right-1 flex h-4 w-4">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 text-[9px] text-white font-bold items-center justify-center">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-4 w-4 bg-blue-500 text-[9px] text-white font-bold items-center justify-center">
                 1
               </span>
             </span>

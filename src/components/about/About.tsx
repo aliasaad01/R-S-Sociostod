@@ -35,7 +35,7 @@ export default function About() {
         {/* عنوان القسم متوافق مع الهوية البصرية */}
         <SectionTitle
           title="Om R S Sociostöd"
-          subtitle="Möt grundaren &amp; upptäck vår vision"
+          subtitle="Bakgrunden till R S Sociostöd"
           showHeart={true}
         />
 
@@ -82,19 +82,23 @@ export default function About() {
                 <strong className="font-medium text-[var(--color-brand-text)]">
                   Rascha Skef
                 </strong>{" "}
-                och är socionom samt grundare av R S Sociostöd. Med erfarenhet
-                från socialt arbete och myndighetsutövning har jag utvecklat en
-                stark övertygelse om vikten av tillgänglig information,
-                förståelse och ett respektfullt bemötande.
+                och är socionom samt grundare av R S Sociostöd. Genom min
+                erfarenhet av myndighetsutövning och socialt arbete har jag mött
+                många människor som upplever att samhällsinformation och
+                kontakten med myndigheter kan vara svår att förstå.
               </p>
               <p>
-                Genom R S Sociostöd vill jag bidra till att göra
-                samhällsinformation mer begriplig och tillgänglig genom
-                föreläsningar, tematräffar och utbildningsmaterial.
+                Det väckte en vilja hos mig att bidra till ökad kunskap,
+                trygghet och förståelse. Därför startade jag R S Sociostöd för
+                att göra samhällsinformation mer tillgänglig och stärka
+                människors möjligheter att känna sig trygga och delaktiga i
+                samhället.
               </p>
               <p>
-                R S Sociostöd erbjuder utbildning, kunskapsspridning och
-                generell samhällsinformation.
+                Genom föreläsningar, tematräffar och utbildningsmaterial
+                erbjuder jag allmän samhällsinformation som hjälper deltagare
+                att bättre förstå hur samhället fungerar och känna större
+                trygghet inför möten med myndigheter.
               </p>
             </div>
 

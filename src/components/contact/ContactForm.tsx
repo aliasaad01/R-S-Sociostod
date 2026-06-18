@@ -88,7 +88,7 @@ export default function ContactForm() {
       <Container>
         {/* عنوان القسم متوافق مع الهوية الرسمية للمؤسسة */}
         <SectionTitle
-          title="Intresseanmälan &amp; kontakt"
+          title="Skicka en intresseanmälan"
           subtitle="Ta första steget mot en anpassad utbildningsinsats"
           showHeart={true}
         />
@@ -255,7 +255,7 @@ export default function ContactForm() {
                     htmlFor="organisation"
                     className="block font-sans text-xs font-bold uppercase tracking-wider text-[var(--color-brand-text)] mb-2"
                   >
-                    Förening / Skola / Myndighet{" "}
+                    verksamhet / organisation{" "}
                     <span className="text-[var(--color-brand-primary)]">*</span>
                   </label>
                   <input

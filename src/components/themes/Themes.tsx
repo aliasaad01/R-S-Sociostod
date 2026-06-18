@@ -55,7 +55,7 @@ export default function Themes() {
         {/* عنوان القسم متوافق مع الهوية التحريرية */}
         <SectionTitle
           title="Våra Teman"
-          subtitle="Utbildningsområden som gör skillnad i vardagen"
+          subtitle="Det här hjälper vi dig att förstå"
           showHeart={true}
         />
 

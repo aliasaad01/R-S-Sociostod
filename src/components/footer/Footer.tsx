@@ -47,9 +47,8 @@ export default function Footer() {
           <div className="max-w-xl">
             <Logo showSubline={true} variant="gold" className="mb-4" />
             <p className="font-sans text-[var(--color-brand-text-secondary)] text-sm leading-relaxed font-light">
-              Pedagogiska utbildningsinsatser, föreläsningar och strukturerat
-              studiematerial som förenklar samhällsinformation och skapar trygga
-              relationer till svenska myndigheter.
+              Föreläsningar och studiematerial som förenklar samhällsinformation
+              och ökar tryggheten i myndighetskontakter.
             </p>
           </div>
 

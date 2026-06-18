@@ -16,39 +16,45 @@ const boxs = [
     iconName: "Presentation",
     title: "Föreläsningar",
     description:
-      "Kunskapsbaserade föreläsningar som anpassas efter målgruppens behov och syftar till att stärka förståelse, delaktighet och trygghet i samhället.",
+      "Föreläsningar som gör samhällets information lättare att förstå och stärker tryggheten i kontakt med myndigheter. Innehållet anpassas efter målgruppens behov.",
     features: [
-      "Målgruppsanpassat innehåll",
-      "Fokus på rättigheter & skyldigheter",
-      "Interaktiva diskussioner",
+      "Anpassat innehåll utifrån målgruppen",
+      "Kunskap om rättigheter och skyldigheter",
+      "Praktiska exempel från vardagen",
+      "Möjlighet att ställa frågor",
     ],
-    priceInfo: "Pris baseras på omfattning, tidsåtgång och målgrupp.",
+    priceInfo:
+      "Pris anpassas efter innehåll, omfattning och målgruppens behov. Kontakta oss för en offert.",
   },
   {
     id: "tematraffar",
     iconName: "Users",
     title: "Tematräffar & Workshops",
     description:
-      "Dialogbaserade träffar som skapar reflektion, kunskapsutbyte och nya perspektiv genom samtal och gruppdiskussioner.",
+      "Träffar där deltagarna får samtala, dela erfarenheter och tillsammans fördjupa sin förståelse kring olika samhällsfrågor. \n\nUtgångspunkten är att skapa trygghet genom förståelse och att ta tillvara deltagarnas egna erfarenheter, frågor och perspektiv.",
     features: [
-      "Praktiska gruppövningar",
-      "Fokus på vardagsnära frågor",
-      "Erfarenhetsutbyte",
+      "Samtal och erfarenhetsutbyte",
+      "Reflektion och övningar",
+      "Deltagarnas frågor i fokus",
+      "Verktyg för ökad trygghet och förståelse",
     ],
-    priceInfo: "Pris baseras på omfattning, tidsåtgång och målgrupp.",
+    priceInfo:
+      "Pris anpassas efter innehåll, omfattning och målgruppens behov. Kontakta oss för en offert.",
   },
   {
     id: "utbildningsmaterial",
     iconName: "Files",
     title: "Utbildningsmaterial",
     description:
-      "Kompendier, deltagarguider och stödmaterial som stärker lärandet före, under och efter utbildningstillfället.",
+      "Tydligt och lättillgängligt material som stärker förståelsen och hjälper deltagarna att ta med sig kunskapen vidare.",
     features: [
-      "Klarspråk och enkel svenska",
-      "Anpassat för målgruppen",
-      "Digitalt eller tryckt format",
+      "Deltagarguider och kompendier",
+      "Sammanfattningar och stödmaterial",
+      "Anpassat efter målgruppen",
+      "Digitalt eller tryckt material",
     ],
-    priceInfo: "Pris baseras på omfattning och komplexitet.",
+    priceInfo:
+      "Pris anpassas efter innehåll, omfattning och målgruppens behov. Kontakta oss för en offert.",
   },
 ];
 export default function Services() {
@@ -95,7 +101,7 @@ export default function Services() {
         {/* عنوان القسم الرئيسي */}
         <SectionTitle
           title="Våra Tjänster"
-          subtitle="Professionella utbildningsinsatser för er verksamhet"
+          subtitle="Utbildningar anpassade efter era behov"
           showHeart={true}
         />
 
@@ -129,14 +135,14 @@ export default function Services() {
                 </h3>
 
                 {/* وصف الخدمة */}
-                <p className="font-sans text-[var(--color-brand-text-secondary)] text-sm sm:text-base leading-relaxed mb-6 font-light">
+                <p className="whitespace-pre-line font-sans text-[var(--color-brand-text-secondary)] text-sm sm:text-base leading-relaxed mb-6 font-light">
                   {service.description}
                 </p>
 
                 {/* نقاط ما يتضمنه العرض تفصيلياً */}
                 <div className="mt-6 pt-6 border-t border-[var(--color-brand-border)]/40">
                   <h4 className="font-sans text-xs font-bold uppercase tracking-wider text-[var(--color-brand-text)] mb-3">
-                    Vad som ingår:
+                    Det här ingår:
                   </h4>
                   <ul className="space-y-3">
                     {service.features.map((feature, idx) => (
@@ -184,7 +190,7 @@ export default function Services() {
         </div>
 
         {/* صندوق اقتباس وتوصية العملاء الشركاء لرفع مستوى الموثوقية العالية */}
-        <div className="mt-16 sm:mt-24 p-8 sm:p-12 rounded-3xl bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] flex flex-col md:flex-row gap-8 items-center max-w-4xl mx-auto">
+        {/* <div className="mt-16 sm:mt-24 p-8 sm:p-12 rounded-3xl bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] flex flex-col md:flex-row gap-8 items-center max-w-4xl mx-auto">
           <div className="w-14 h-14 rounded-full bg-[var(--color-brand-primary)]/10 flex items-center justify-center text-[var(--color-brand-primary)] shrink-0">
             <span className="text-3xl font-serif">”</span>
           </div>
@@ -204,7 +210,7 @@ export default function Services() {
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
       </Container>
     </section>
   );

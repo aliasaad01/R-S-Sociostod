@@ -80,9 +80,10 @@ export default function Audience() {
           transition={{ duration: 0.6 }}
           className="font-sans text-[var(--color-brand-text-secondary)] text-center text-lg max-w-2xl mx-auto mb-12 font-light"
         >
-          R S Sociostöds föreläsningar och insatser är utformade för att stötta
-          och berika bildning, utveckling samt integration inom en rad olika
-          sektorer och verksamheter.
+          R S Sociostöds utbildningsinsatser anpassas efter varje verksamhets
+          behov. Vi erbjuder föreläsningar, tematräffar och utbildningsmaterial
+          som stärker kunskap, förståelse och trygghet i mötet med samhället och
+          myndigheter.
         </motion.p>
 
         {/* شبكة توزيع بطاقات الفئات المستهدفة مع الحركة المتتابعة */}
@@ -130,15 +131,16 @@ export default function Audience() {
           className="mt-16 sm:mt-24 border border-dashed border-[var(--color-brand-primary)]/50 bg-[var(--color-brand-bg)]/30 rounded-2xl p-6 sm:p-8 text-center max-w-2xl mx-auto"
         >
           <h4 className="title-font text-[var(--color-brand-primary)] text-xl font-medium mb-3">
-            Hittade du inte er specifika verksamhet?
+            Passar inte beskrivningen in på er verksamhet?
           </h4>
           <p className="font-sans text-[var(--color-brand-text-secondary)] text-sm leading-relaxed font-light mb-1">
-            Vi kundanpassar alltid alla insatser utifrån deltagarnas
-            förutsättningar, modersmål, och kunskapsnivå.
+            Vi anpassar våra utbildningsinsatser efter målgruppens
+            förutsättningar, språk och behov. Tillsammans hittar vi ett upplägg
+            som passar just er.
           </p>
-          <span className="font-sans text-xs font-semibold text-[var(--color-brand-text)] uppercase tracking-wider block mt-3">
+          {/* <span className="font-sans text-xs font-semibold text-[var(--color-brand-text)] uppercase tracking-wider block mt-3">
             Hör av dig så diskuterar vi era unika behov tillsammans!
-          </span>
+          </span> */}
         </motion.div>
       </Container>
     </section>

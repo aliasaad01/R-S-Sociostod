@@ -58,13 +58,13 @@ export default function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2 bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] px-4 py-1.5 rounded-full text-[var(--color-brand-primary)] text-xs font-bold tracking-widest uppercase mb-5 w-fit shadow-xs"
+              className="inline-flex items-center gap-2 bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] px-4 py-1.5 rounded-full text-[var(--color-brand-primary)] text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-5 w-fit shadow-xs"
             >
               <Sparkles
                 size={12}
                 className="text-[var(--color-brand-primary)] animate-pulse"
               />
-              <span>Föreläsare &amp; Samhällspedagogik</span>
+              <span>Samhällsförståelse &amp; trygg myndighetskontakt</span>
             </motion.div>
 
             <motion.h1
@@ -77,9 +77,9 @@ export default function Hero() {
               }}
               className="title-font text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-[var(--color-brand-text)] font-medium leading-[1.15] tracking-tight uppercase"
             >
-              Kunskap som stärker.
+              KUNSKAP SOM STÄRKER.
               <span className="block italic text-[var(--color-brand-primary)] mt-1 font-light normal-case">
-                Trygghet som skapar förståelse.
+                Trygghet genom förståelse.
               </span>
             </motion.h1>
 
@@ -94,9 +94,8 @@ export default function Hero() {
               className="font-sans text-[var(--color-brand-text-secondary)] text-sm sm:text-base md:text-sm lg:text-lg leading-relaxed mt-5 mb-4 max-w-xl font-light"
             >
               <span className="font-bold">R S Sociostöd</span> erbjuder
-              kundanpassade föreläsningar, tematräffar, workshops och
-              utbildningsmaterial inom samhällsförståelse, allmän
-              samhällsinformation samt trygg kontakt med myndigheter.
+              kundanpassade föreläsningar och utbildningsinsatser som gör
+              samhällsinformation mer tillgänglig och begriplig.
             </motion.p>
 
             <motion.p
@@ -109,9 +108,23 @@ export default function Hero() {
               }}
               className="font-sans text-[var(--color-brand-text-secondary)] text-sm sm:text-base md:text-sm lg:text-lg leading-relaxed mt-0 mb-6 max-w-xl font-light"
             >
-              Målet är att göra information enklare, tydligare och mer
-              tillgänglig genom pedagogiska utbildningsinsatser som stärker
-              kunskap, delaktighet och förståelse.
+              Genom pedagogiska utbildningar vill vi stärka människors
+              förståelse för hur samhället fungerar och skapa större trygghet i
+              mötet med myndigheter och offentliga verksamheter.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="font-sans text-[var(--color-brand-text-secondary)] text-sm sm:text-base md:text-sm lg:text-lg leading-relaxed mt-0 mb-6 max-w-xl font-light"
+            >
+              Målet är inte att deltagarna ska kunna allt, utan att de ska känna
+              sig tryggare, veta vart de kan vända sig och våga ta nästa steg
+              när de behöver information eller stöd.
             </motion.p>
 
             <motion.div

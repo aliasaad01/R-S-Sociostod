@@ -18,17 +18,21 @@ export const NAV_LINKS = [
 ];
 
 export const IMAGES = {
-  heroLifestyle: "/images/hero.jpg",
-  raschaPortrait: "/images/rascha.jpg",
+  heroLifestyle: "/images/hero-1.jpeg",
+  raschaPortrait: "/images/rascha-1.png",
 };
 
 export const WHATS_APP_PREFILLS = {
   forelasningar:
-    "Hej R S Sociostöd! Jag är intresserad av att veta mer om era föreläsningar. Skulle vi kunna boka in ett rådgivande möte?",
+    "Hej R S Sociostöd! Jag är intresserad av era föreläsningar och utbildningsupplägg och vill gärna veta mer om hur vi kan samarbeta.",
   tematraffar:
     "Hej R S Sociostöd! Jag vill gärna ställa några frågor om era tematräffar och workshops.",
   priser:
     "Hej R S Sociostöd! Vad har ni för prisbild för föreläsningar och anpassat material för en förening/organisation?",
-  kontakt:
-    "Hej R S Sociostöd! Jag har en allmän förfrågan och vill gärna komma i kontakt med Rascha Skef.",
+  anpassat:
+    "Hej R S Sociostöd! Vi har en specifik målgrupp och skulle vilja diskutera ett anpassat upplägg utifrån våra behov.",
+  utbildningsmaterial:
+    "Hej R S Sociostöd! Jag har några frågor gällande era kompendier, deltagarguider och annat studiematerial.",
+  frågor:
+    "Hej R S Sociostöd! Jag har en allmän förfrågan och skulle vilja komma i kontakt med er.",
 };
