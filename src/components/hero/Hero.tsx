@@ -58,7 +58,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2 bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] px-4 py-1.5 rounded-full text-[var(--color-brand-primary)] text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-5 w-fit shadow-xs"
+              className="inline-flex items-center gap-2 bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] px-4 py-1.5 rounded-full text-[var(--color-brand-primary)] text-[9px] sm:text-xs font-bold tracking-widest uppercase mb-5 w-fit shadow-xs"
             >
               <Sparkles
                 size={12}
