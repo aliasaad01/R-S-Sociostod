@@ -45,7 +45,7 @@ export default function Logo({
         </span>
 
         {showSubline && (
-          <span className="font-sans text-[8px] sm:text-[10px] tracking-wide text-[var(--color-brand-text-secondary)]/80 uppercase font-medium leading-none mt-1">
+          <span className="font-sans text-[9px] sm:text-[10px] tracking-wide text-[var(--color-brand-text-secondary)]/80 uppercase font-medium leading-none mt-1">
             Din guide vid myndighetskontakt
           </span>
         )}
