@@ -58,7 +58,7 @@ export default function Footer() {
               href={`mailto:${BRAND_INFO.email}`}
               className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-brand-bg border border-brand-border text-sm font-sans text-brand-text hover:border-brand-primary/40 hover:bg-brand-white hover:shadow-xs transition-all group"
             >
-              <div className="w-8 h-8 rounded-lg bg-brand-white border border-brand-borderflex items-center justify-center text-brand-primary transition-colors">
+              <div className="w-8 h-8 rounded-lg bg-brand-white border border-brand-border flex items-center justify-center text-brand-primary transition-colors">
                 <Mail size={14} />
               </div>
               <div className="flex flex-col">
