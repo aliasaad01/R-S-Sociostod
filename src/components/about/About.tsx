@@ -59,14 +59,14 @@ export default function About() {
               </div>
 
               {/* الشارة المهنية العائمة لتوثيق الشهادة الأكاديمية */}
-              <div className="absolute -bottom-5 -right-5 bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] px-5 py-3 rounded-2xl shadow-lg text-left hidden sm:block">
+              {/* <div className="absolute -bottom-5 -right-5 bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] px-5 py-3 rounded-2xl shadow-lg text-left hidden sm:block">
                 <span className="block text-xs font-bold text-[var(--color-brand-primary)] uppercase tracking-wider">
                   Auktoriserad
                 </span>
                 <span className="block text-sm font-semibold text-[var(--color-brand-text)] mt-0.5">
                   Socionomexamen
                 </span>
-              </div>
+              </div> */}
             </div>
           </div>
 
