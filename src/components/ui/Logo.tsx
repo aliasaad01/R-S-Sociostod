@@ -26,7 +26,7 @@ export default function Logo({
       {/* حاوية أيقونة الشعار مع تثبيت الأبعاد لمنع وميض أو اهتزاز العناصر أثناء التحميل */}
       <div className="w-12 h-12 flex items-center justify-center shrink-0">
         <img
-          src="/favicon.png"
+          src="/favicon.PNG"
           alt="R S Sociostöd logotyp – Kunskap som stärker"
           className="w-full h-full object-contain"
           loading="eager"
