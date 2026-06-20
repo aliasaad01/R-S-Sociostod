@@ -18,17 +18,16 @@ export default function Button({
   ...props // نجمع باقي الخصائص (مثل disabled، وأي خصائص حركة من Framer Motion) هنا
 }: ButtonProps) {
   const baseStyle =
-    "inline-flex items-center justify-center font-sans font-medium rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-brand-primary)] active:scale-98 cursor-pointer tracking-wide whitespace-nowrap shrink-0 disabled:cursor-not-allowed disabled:opacity-60"; // أضفت لك تنسيق الـ disabled هنا احتياطاً
+    "inline-flex items-center justify-center font-sans font-medium rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary active:scale-98 cursor-pointer tracking-wide whitespace-nowrap shrink-0 disabled:cursor-not-allowed disabled:opacity-60"; // أضفت لك تنسيق الـ disabled هنا احتياطاً
 
   const variants = {
     primary:
-      "bg-[var(--color-brand-primary)] text-[var(--color-brand-bg)] hover:bg-[var(--color-brand-primary-dark)] shadow-xs hover:shadow-md",
-    secondary:
-      "bg-[var(--color-brand-border)] text-[var(--color-brand-text)] hover:bg-opacity-80",
+      "bg-brand-primary text-[var(--color-brand-bg)] hover:bg-[var(--color-brand-primary-dark)] shadow-xs hover:shadow-md",
+    secondary: "bg-brand-border text-brand-text hover:bg-opacity-80",
     outline:
-      "bg-transparent border border-[var(--color-brand-primary)] text-[var(--color-brand-primary)] hover:bg-[var(--color-brand-primary)] hover:text-[var(--color-brand-white)]",
+      "bg-transparent border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-brand-white",
     white:
-      "bg-[var(--color-brand-white)] text-[var(--color-brand-text)] hover:bg-[var(--color-brand-bg)] hover:text-[var(--color-brand-primary)] shadow-xs",
+      "bg-brand-white text-brand-text hover:bg-brand-bg hover:text-brand-primary shadow-xs",
   };
 
   // تعديل ذكي ومستقر للأحجام لكي تتجاوب وتتقلص تلقائياً على الشاشات الوسط والصغيرة

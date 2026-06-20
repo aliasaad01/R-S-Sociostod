@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -79,11 +79,11 @@ export default function ContactForm() {
   return (
     <section
       id="kontakt"
-      className="py-20 bg-[var(--color-brand-bg)] relative overflow-hidden"
+      className="py-20 bg-brand-bg relative overflow-hidden"
     >
       {/* هالات خلفية مضيئة تمنح التصميم مظهراً تحريرياً فاخراً */}
-      <div className="absolute left-[-20%] bottom-[-20%] w-[500px] h-[500px] rounded-full bg-[var(--color-brand-primary)]/5 filter blur-3xl pointer-events-none select-none" />
-      <div className="absolute right-[-10%] top-[-10%] w-[400px] h-[400px] rounded-full bg-[var(--color-brand-primary)]/5 filter blur-[100px] pointer-events-none select-none" />
+      <div className="absolute left-[-20%] bottom-[-20%] w-125 h-125 rounded-full bg-brand-primary/5 filter blur-3xl pointer-events-none select-none" />
+      <div className="absolute right-[-10%] top-[-10%] w-100 h-100 rounded-full bg-brand-primary/5 filter blur-[100px] pointer-events-none select-none" />
 
       <Container>
         {/* عنوان القسم متوافق مع الهوية الرسمية للمؤسسة */}
@@ -96,11 +96,11 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* الجانب الأيسر: معلومات الاتصال وقنوات التواصل الاجتماعي */}
           <div className="col-span-1 lg:col-span-5 text-left">
-            <h3 className="title-font text-2xl sm:text-3xl text-[var(--color-brand-text)] font-semibold mb-6">
+            <h3 className="title-font text-2xl sm:text-3xl text-brand-text font-semibold mb-6">
               Låt oss samtala.
             </h3>
 
-            <p className="font-sans text-[var(--color-brand-text-secondary)] text-base leading-relaxed mb-10 font-light">
+            <p className="font-sans text-brand-text-secondary text-base leading-relaxed mb-10 font-light">
               Fyll i formuläret så återkommer jag snarast för att diskutera ett
               skräddarsytt upplägg som passar perfekt för just er organisation
               och målgrupp.
@@ -112,16 +112,16 @@ export default function ContactForm() {
               <motion.a
                 whileHover={{ x: 4 }}
                 href={`mailto:${BRAND_INFO.email}`}
-                className="flex items-center gap-4 p-4 rounded-2xl border border-[var(--color-brand-border)] bg-[var(--color-brand-white)] shadow-xs hover:border-[var(--color-brand-primary)]/40 transition-colors group focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)]"
+                className="flex items-center gap-4 p-4 rounded-2xl border border-brand-border bg-brand-white shadow-xs hover:border-brand-primary/40 transition-colors group focus:outline-none focus:ring-1 focus:ring-brand-primary"
               >
-                <div className="w-11 h-11 rounded-xl bg-[var(--color-brand-bg)] flex items-center justify-center text-[var(--color-brand-primary)] group-hover:bg-[var(--color-brand-primary)] group-hover:text-[var(--color-brand-white)] transition-colors shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-brand-bg flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-brand-white transition-colors shrink-0">
                   <Mail size={18} />
                 </div>
                 <div>
-                  <span className="block font-sans text-xs font-bold text-[var(--color-brand-text)] uppercase tracking-widest">
+                  <span className="block font-sans text-xs font-bold text-brand-text uppercase tracking-widest">
                     Skriv direkt
                   </span>
-                  <span className="block font-sans text-sm sm:text-base text-[var(--color-brand-text-secondary)] font-semibold mt-0.5">
+                  <span className="block font-sans text-sm sm:text-base text-brand-text-secondary font-semibold mt-0.5">
                     {BRAND_INFO.email}
                   </span>
                 </div>
@@ -133,16 +133,16 @@ export default function ContactForm() {
                 href="https://www.instagram.com/rs.sociostod"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-4 p-4 rounded-2xl border border-[var(--color-brand-border)] bg-[var(--color-brand-white)] shadow-xs hover:border-[var(--color-brand-primary)]/40 transition-colors group focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)]"
+                className="flex items-center gap-4 p-4 rounded-2xl border border-brand-border bg-brand-white shadow-xs hover:border-brand-primary/40 transition-colors group focus:outline-none focus:ring-1 focus:ring-brand-primary"
               >
-                <div className="w-11 h-11 rounded-xl bg-[var(--color-brand-bg)] flex items-center justify-center text-[var(--color-brand-primary)] group-hover:bg-[var(--color-brand-primary)] group-hover:text-[var(--color-brand-white)] transition-colors shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-brand-bg flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-brand-white transition-colors shrink-0">
                   <Instagram size={18} />
                 </div>
                 <div>
-                  <span className="block font-sans text-xs font-bold text-[var(--color-brand-text)] uppercase tracking-widest">
+                  <span className="block font-sans text-xs font-bold text-brand-text uppercase tracking-widest">
                     Följ på Instagram
                   </span>
-                  <span className="block font-sans text-sm sm:text-base text-[var(--color-brand-text-secondary)] font-semibold mt-0.5">
+                  <span className="block font-sans text-sm sm:text-base text-brand-text-secondary font-semibold mt-0.5">
                     {BRAND_INFO.instagram}
                   </span>
                 </div>
@@ -154,16 +154,16 @@ export default function ContactForm() {
                 href="https://www.facebook.com/share/1EHYGunjbH/"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-4 p-4 rounded-2xl border border-[var(--color-brand-border)] bg-[var(--color-brand-white)] shadow-xs hover:border-[var(--color-brand-primary)]/40 transition-colors group focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)]"
+                className="flex items-center gap-4 p-4 rounded-2xl border border-brand-border bg-brand-white shadow-xs hover:border-brand-primary/40 transition-colors group focus:outline-none focus:ring-1 focus:ring-brand-primary"
               >
-                <div className="w-11 h-11 rounded-xl bg-[var(--color-brand-bg)] flex items-center justify-center text-[var(--color-brand-primary)] group-hover:bg-[var(--color-brand-primary)] group-hover:text-[var(--color-brand-white)] transition-colors shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-brand-bg flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-brand-white transition-colors shrink-0">
                   <Facebook size={18} />
                 </div>
                 <div>
-                  <span className="block font-sans text-xs font-bold text-[var(--color-brand-text)] uppercase tracking-widest">
+                  <span className="block font-sans text-xs font-bold text-brand-text uppercase tracking-widest">
                     Gilla på Facebook
                   </span>
-                  <span className="block font-sans text-sm sm:text-base text-[var(--color-brand-text-secondary)] font-semibold mt-0.5">
+                  <span className="block font-sans text-sm sm:text-base text-brand-text-secondary font-semibold mt-0.5">
                     {BRAND_INFO.facebook}
                   </span>
                 </div>
@@ -171,7 +171,7 @@ export default function ContactForm() {
             </div>
 
             {/* إشعار أمان البيانات الخاص بقواعد حماية الخصوصية GDPR */}
-            <p className="font-sans text-xs text-[var(--color-brand-text-secondary)] italic mt-10 text-left">
+            <p className="font-sans text-xs text-brand-text-secondary italic mt-10 text-left">
               Vi hanterar personuppgifter säkert i enighet med gällande
               dataskyddsbestämmelser och raderar era data efter slutförd
               kontakt.
@@ -185,7 +185,7 @@ export default function ContactForm() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] rounded-3xl p-6 sm:p-10 shadow-sm"
+              className="bg-brand-white border border-brand-border rounded-3xl p-6 sm:p-10 shadow-sm"
             >
               <form
                 onSubmit={handleSubmit(onSubmit)}
@@ -195,10 +195,9 @@ export default function ContactForm() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block font-sans text-xs font-bold uppercase tracking-wider text-[var(--color-brand-text)] mb-2"
+                    className="block font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-2"
                   >
-                    Ditt Namn{" "}
-                    <span className="text-[var(--color-brand-primary)]">*</span>
+                    Ditt Namn <span className="text-brand-primary">*</span>
                   </label>
                   <input
                     type="text"
@@ -206,10 +205,10 @@ export default function ContactForm() {
                     disabled={isSubmitting}
                     {...register("name")}
                     placeholder="För- och efternamn"
-                    className={`w-full font-sans bg-[var(--color-brand-bg)] border rounded-xl px-4 py-3 text-[var(--color-brand-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 disabled:opacity-60 disabled:cursor-not-allowed ${
+                    className={`w-full font-sans bg-brand-bg border rounded-xl px-4 py-3 text-brand-text text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 disabled:opacity-60 disabled:cursor-not-allowed ${
                       errors.name
                         ? "border-red-400"
-                        : "border-[var(--color-brand-border)] focus:border-[var(--color-brand-primary)]"
+                        : "border-brand-border focus:border-brand-primary"
                     }`}
                   />
                   {errors.name && (
@@ -224,10 +223,9 @@ export default function ContactForm() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block font-sans text-xs font-bold uppercase tracking-wider text-[var(--color-brand-text)] mb-2"
+                    className="block font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-2"
                   >
-                    E-postadress{" "}
-                    <span className="text-[var(--color-brand-primary)]">*</span>
+                    E-postadress <span className="text-brand-primary">*</span>
                   </label>
                   <input
                     type="email"
@@ -235,10 +233,10 @@ export default function ContactForm() {
                     disabled={isSubmitting}
                     {...register("email")}
                     placeholder="exempel@organisation.se"
-                    className={`w-full font-sans bg-[var(--color-brand-bg)] border rounded-xl px-4 py-3 text-[var(--color-brand-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 disabled:opacity-60 disabled:cursor-not-allowed ${
+                    className={`w-full font-sans bg-brand-bg border rounded-xl px-4 py-3 text-brand-text text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 disabled:opacity-60 disabled:cursor-not-allowed ${
                       errors.email
                         ? "border-red-400"
-                        : "border-[var(--color-brand-border)] focus:border-[var(--color-brand-primary)]"
+                        : "border-brand-border focus:border-brand-primary"
                     }`}
                   />
                   {errors.email && (
@@ -253,10 +251,10 @@ export default function ContactForm() {
                 <div>
                   <label
                     htmlFor="organisation"
-                    className="block font-sans text-xs font-bold uppercase tracking-wider text-[var(--color-brand-text)] mb-2"
+                    className="block font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-2"
                   >
                     verksamhet / organisation{" "}
-                    <span className="text-[var(--color-brand-primary)]">*</span>
+                    <span className="text-brand-primary">*</span>
                   </label>
                   <input
                     type="text"
@@ -264,10 +262,10 @@ export default function ContactForm() {
                     disabled={isSubmitting}
                     {...register("organisation")}
                     placeholder="T.ex. Studieförbundet, Komvux, etc."
-                    className={`w-full font-sans bg-[var(--color-brand-bg)] border rounded-xl px-4 py-3 text-[var(--color-brand-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 disabled:opacity-60 disabled:cursor-not-allowed ${
+                    className={`w-full font-sans bg-brand-bg border rounded-xl px-4 py-3 text-brand-text text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 disabled:opacity-60 disabled:cursor-not-allowed ${
                       errors.organisation
                         ? "border-red-400"
-                        : "border-[var(--color-brand-border)] focus:border-[var(--color-brand-primary)]"
+                        : "border-brand-border focus:border-brand-primary"
                     }`}
                   />
                   {errors.organisation && (
@@ -282,10 +280,10 @@ export default function ContactForm() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block font-sans text-xs font-bold uppercase tracking-wider text-[var(--color-brand-text)] mb-2"
+                    className="block font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-2"
                   >
                     Ditt Meddelande{" "}
-                    <span className="text-[var(--color-brand-primary)]">*</span>
+                    <span className="text-brand-primary">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -293,10 +291,10 @@ export default function ContactForm() {
                     disabled={isSubmitting}
                     {...register("message")}
                     placeholder="Berätta kortfattat om era önskemål, uppskattat antal deltagare och tidsram..."
-                    className={`w-full font-sans bg-[var(--color-brand-bg)] border rounded-xl px-4 py-3 text-[var(--color-brand-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 resize-y min-h-[120px] disabled:opacity-60 disabled:cursor-not-allowed ${
+                    className={`w-full font-sans bg-brand-bg border rounded-xl px-4 py-3 text-brand-text text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/45 transition-all text-left placeholder:[var(--color-brand-text-secondary)]/50 resize-y min-h-30 disabled:opacity-60 disabled:cursor-not-allowed ${
                       errors.message
                         ? "border-red-400"
-                        : "border-[var(--color-brand-border)] focus:border-[var(--color-brand-primary)]"
+                        : "border-brand-border focus:border-brand-primary"
                     }`}
                   />
                   {errors.message && (
@@ -319,7 +317,7 @@ export default function ContactForm() {
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">
                         <svg
-                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-[var(--color-brand-white)]"
+                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-brand-white"
                           fill="none"
                           viewBox="0 0 24 24"
                         >
@@ -364,24 +362,24 @@ export default function ContactForm() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
-            className="fixed bottom-6 left-6 right-6 sm:left-auto sm:right-6 z-50 bg-[var(--color-brand-white)] border border-[var(--color-brand-primary)]/50 text-[var(--color-brand-text)] rounded-2xl p-4 max-w-sm flex items-start gap-4 shadow-xl"
+            className="fixed bottom-6 left-6 right-6 sm:left-auto sm:right-6 z-50 bg-brand-white border border-brand-primary/50 text-brand-text rounded-2xl p-4 max-w-sm flex items-start gap-4 shadow-xl"
             role="alert"
           >
             <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center shrink-0">
               <CheckCircle2 size={24} />
             </div>
             <div className="text-left flex-1">
-              <h5 className="font-sans font-bold text-sm text-[var(--color-brand-text)]">
+              <h5 className="font-sans font-bold text-sm text-brand-text">
                 Anmälan mottagen!
               </h5>
-              <p className="font-sans text-xs text-[var(--color-brand-text-secondary)] mt-0.5 leading-normal">
+              <p className="font-sans text-xs text-brand-text-secondary mt-0.5 leading-normal">
                 Stort tack för ditt intresse! Jag kontaktar er via angiven
                 e-postadress inom kort.
               </p>
             </div>
             <button
               onClick={() => setSuccessToast(false)}
-              className="text-[var(--color-brand-text-secondary)] hover:text-[var(--color-brand-text)] text-sm p-1 cursor-pointer focus:outline-none"
+              className="text-brand-text-secondary hover:text-brand-text text-sm p-1 cursor-pointer focus:outline-none"
               aria-label="Stäng notis"
             >
               ×

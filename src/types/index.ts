@@ -19,7 +19,7 @@ export interface ServiceItem {
   description: string;
   iconName: string;
   features: string[];
-  priceInfo: string; /* تم إزالة الـ ? لأن القيمة موجودة دائماً في البيانات */
+  priceInfo: string;
 }
 
 export interface AudienceItem {
@@ -32,7 +32,7 @@ export interface AudienceItem {
 export interface ContactFormData {
   name: string;
   email: string;
-  organization: string; /* تم تعديلها بحرف z لتطابق حقول الـ content.ts */
+  organization: string;
   message: string;
 }
 

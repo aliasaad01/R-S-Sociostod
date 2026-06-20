@@ -47,7 +47,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
   return (
     <HelmetProvider>
-      <div className="min-h-screen bg-[var(--color-brand-bg)] text-[var(--color-brand-text)] font-sans antialiased relative">
+      <div className="min-h-screen bg-brand-bg text-brand-text font-sans antialiased relative">
         {/* إدارة وسوم الميتا تاق بالكامل من مكان واحد مركزي وديناميكي */}
         <Helmet>
           <html lang="sv" />

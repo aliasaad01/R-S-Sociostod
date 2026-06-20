@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "motion/react";
 
 interface SectionTitleProps {
@@ -26,7 +25,7 @@ export default function SectionTitle({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="block text-[var(--color-brand-primary)] font-sans font-semibold tracking-widest text-xs uppercase mb-2 sm:mb-3"
+          className="block text-brand-primary font-sans font-semibold tracking-widest text-xs uppercase mb-2 sm:mb-3"
         >
           {subtitle}
         </motion.span>
@@ -36,7 +35,7 @@ export default function SectionTitle({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="title-font font-medium text-3xl sm:text-4xl md:text-5xl text-[var(--color-brand-text)] leading-tight uppercase tracking-wide"
+        className="title-font font-medium text-3xl sm:text-4xl md:text-5xl text-brand-text leading-tight uppercase tracking-wide"
       >
         {title}
       </motion.h2>
@@ -49,11 +48,11 @@ export default function SectionTitle({
           transition={{ duration: 0.5, delay: 0.2 }}
           className={`flex ${flexAlign} gap-2 mt-3 sm:mt-4`}
         >
-          <div className="w-8 h-[1px] bg-[var(--color-brand-border)]" />
-          <span className="text-[var(--color-brand-primary)] text-sm font-light select-none">
+          <div className="w-8 h-px bg-brand-border" />
+          <span className="text-brand-primary text-sm font-light select-none">
             ♡
           </span>
-          <div className="w-8 h-[1px] bg-[var(--color-brand-border)]" />
+          <div className="w-8 h-px bg-brand-border" />
         </motion.div>
       )}
     </div>

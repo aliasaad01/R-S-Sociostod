@@ -91,11 +91,11 @@ export default function Services() {
   return (
     <section
       id="tjanster"
-      className="py-20 sm:py-28 bg-[var(--color-brand-bg)] relative overflow-hidden"
+      className="py-20 sm:py-28 bg-brand-bg relative overflow-hidden"
     >
       {/* عناصر الديكور الخلفية التحريرية الهادئة */}
-      <div className="absolute right-[-5%] top-[10%] w-[350px] h-[350px] rounded-full bg-[var(--color-brand-primary)]/5 filter blur-[100px] pointer-events-none select-none" />
-      <div className="absolute left-[5%] bottom-[10%] w-[300px] h-[300px] rounded-full bg-[var(--color-brand-border)]/15 filter blur-[80px] pointer-events-none select-none" />
+      <div className="absolute right-[-5%] top-[10%] w-87.5 h-87.5 rounded-full bg-brand-primary/5 filter blur-[100px] pointer-events-none select-none" />
+      <div className="absolute left-[5%] bottom-[10%] w-75 h-75 rounded-full bg-brand-border/15 filter blur-[80px] pointer-events-none select-none" />
 
       <Container>
         {/* عنوان القسم الرئيسي */}
@@ -113,44 +113,41 @@ export default function Services() {
               key={service.id}
               delay={index * 0.1}
               hoverEffect={true}
-              className="group flex flex-col justify-between h-full bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] text-left p-8 sm:p-9 relative overflow-hidden"
+              className="group flex flex-col justify-between h-full bg-brand-white border border-brand-border text-left p-8 sm:p-9 relative overflow-hidden"
             >
               <div>
                 {/* الرقم الخلفي الجمالي للبطاقة يتفاعل عند تمرير الماوس */}
-                <span className="absolute top-6 right-8 font-serif text-[var(--color-brand-border)]/80 font-bold text-5xl select-none group-hover:text-[var(--color-brand-primary)]/10 transition-colors duration-300">
+                <span className="absolute top-6 right-8 font-serif text-brand-border/80 font-bold text-5xl select-none group-hover:text-brand-primary/10 transition-colors duration-300">
                   0{index + 1}
                 </span>
 
                 {/* حاوية الأيقونة الخاصة بالخدمة */}
-                <div className="w-12 h-12 rounded-xl bg-[var(--color-brand-bg)] flex items-center justify-center text-[var(--color-brand-primary)] border border-[var(--color-brand-border)] group-hover:border-[var(--color-brand-primary)] transition-colors duration-300 mb-6 shrink-0">
-                  {getIcon(
-                    service.iconName,
-                    "text-[var(--color-brand-primary)]",
-                  )}
+                <div className="w-12 h-12 rounded-xl bg-brand-bg flex items-center justify-center text-brand-primary border border-brand-border group-hover:border-brand-primary transition-colors duration-300 mb-6 shrink-0">
+                  {getIcon(service.iconName, "text-brand-primary")}
                 </div>
 
                 {/* عنوان الخدمة الرئيسي */}
-                <h3 className="title-font text-2xl sm:text-3xl font-semibold text-[var(--color-brand-text)] mb-4">
+                <h3 className="title-font text-2xl sm:text-3xl font-semibold text-brand-text mb-4">
                   {service.title}
                 </h3>
 
                 {/* وصف الخدمة */}
-                <p className="whitespace-pre-line font-sans text-[var(--color-brand-text-secondary)] text-sm sm:text-base leading-relaxed mb-6 font-light">
+                <p className="whitespace-pre-line font-sans text-brand-text-secondary text-sm sm:text-base leading-relaxed mb-6 font-light">
                   {service.description}
                 </p>
 
                 {/* نقاط ما يتضمنه العرض تفصيلياً */}
-                <div className="mt-6 pt-6 border-t border-[var(--color-brand-border)]/40">
-                  <h4 className="font-sans text-xs font-bold uppercase tracking-wider text-[var(--color-brand-text)] mb-3">
+                <div className="mt-6 pt-6 border-t border-brand-border/40">
+                  <h4 className="font-sans text-xs font-bold uppercase tracking-wider text-brand-text mb-3">
                     Det här ingår:
                   </h4>
                   <ul className="space-y-3">
                     {service.features.map((feature, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start gap-2.5 text-sm text-[var(--color-brand-text-secondary)]"
+                        className="flex items-start gap-2.5 text-sm text-brand-text-secondary"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-primary)] shrink-0 mt-2" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-primary shrink-0 mt-2" />
                         <span className="font-sans font-light">{feature}</span>
                       </li>
                     ))}
@@ -159,12 +156,12 @@ export default function Services() {
               </div>
 
               {/* الجزء السفلي للبطاقة ويشمل تفاصيل التسعير وزر الاتصال */}
-              <div className="mt-8 pt-6 border-t border-[var(--color-brand-border)]/40 flex flex-col gap-4">
+              <div className="mt-8 pt-6 border-t border-brand-border/40 flex flex-col gap-4">
                 {service.priceInfo && (
-                  <div className="flex items-start gap-2 bg-[var(--color-brand-bg)]/40 border border-[var(--color-brand-border)]/30 rounded-lg px-3 py-2 text-xs text-[var(--color-brand-text-secondary)]">
+                  <div className="flex items-start gap-2 bg-brand-bg/40 border border-brand-border/30 rounded-lg px-3 py-2 text-xs text-brand-text-secondary">
                     <HelpCircle
                       size={14}
-                      className="text-[var(--color-brand-primary)] shrink-0 mt-0.5"
+                      className="text-brand-primary shrink-0 mt-0.5"
                     />
                     <span className="font-sans leading-snug">
                       {service.priceInfo}
@@ -176,7 +173,7 @@ export default function Services() {
                 <button
                   type="button"
                   onClick={handleCtaClick}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-[var(--color-brand-primary)] hover:text-[var(--color-brand-primary-dark)] transition-colors text-left cursor-pointer border-b border-[var(--color-brand-primary)]/30 pb-0.5 w-fit focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)] focus:ring-offset-2"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-brand-primary hover:text-brand-primary-dark transition-colors text-left cursor-pointer border-b border-brand-primary/30 pb-0.5 w-fit focus:outline-none focus:ring-1 focus:ring-brand-primary focus:ring-offset-2"
                 >
                   <span>Boka intresseanmälan</span>
                   <ArrowUpRight
@@ -190,22 +187,22 @@ export default function Services() {
         </div>
 
         {/* صندوق اقتباس وتوصية العملاء الشركاء لرفع مستوى الموثوقية العالية */}
-        {/* <div className="mt-16 sm:mt-24 p-8 sm:p-12 rounded-3xl bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] flex flex-col md:flex-row gap-8 items-center max-w-4xl mx-auto">
-          <div className="w-14 h-14 rounded-full bg-[var(--color-brand-primary)]/10 flex items-center justify-center text-[var(--color-brand-primary)] shrink-0">
+        {/* <div className="mt-16 sm:mt-24 p-8 sm:p-12 rounded-3xl bg-brand-white border border-brand-border flex flex-col md:flex-row gap-8 items-center max-w-4xl mx-auto">
+          <div className="w-14 h-14 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
             <span className="text-3xl font-serif">”</span>
           </div>
           <div className="text-left flex-1">
-            <p className="font-serif italic text-base sm:text-lg text-[var(--color-brand-text-secondary)] leading-relaxed font-light">
+            <p className="font-serif italic text-base sm:text-lg text-brand-text-secondary leading-relaxed font-light">
               "Raschas unika kombination av formell socionomkompetens och
               pedagogisk lyhördhet gör att hon når fram till alla. Hennes
               material och föreläsningar är enkla, strukturerade och fyllda med
               värme och respekt."
             </p>
             <div className="mt-4 flex items-center gap-2">
-              <span className="font-sans font-semibold text-xs text-[var(--color-brand-text)] uppercase tracking-widest">
+              <span className="font-sans font-semibold text-xs text-brand-text uppercase tracking-widest">
                 – Ann-Marie Lindgren,
               </span>
-              <span className="font-sans text-xs text-[var(--color-brand-primary)] uppercase tracking-widest font-bold">
+              <span className="font-sans text-xs text-brand-primary uppercase tracking-widest font-bold">
                 Studieledare SFI
               </span>
             </div>

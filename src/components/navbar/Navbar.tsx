@@ -107,7 +107,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[var(--color-brand-bg)]/90 backdrop-blur-md border-[var(--color-brand-border)]/60 py-3 shadow-xs"
+          ? "bg-brand-bg/90 backdrop-blur-md border-brand-border/60 py-3 shadow-xs"
           : "bg-transparent py-5"
       }`}
     >
@@ -116,7 +116,7 @@ export default function Navbar() {
           <a
             href="#hem"
             onClick={(e) => handleLinkClick(e, "#hem")}
-            className="focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)]/50 rounded-xl z-50"
+            className="focus:outline-none focus:ring-2 focus:ring-brand-primary/50 rounded-xl z-50"
             aria-label="R S Sociostöd Hem"
           >
             <Logo />
@@ -132,17 +132,17 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className={`relative font-sans text-sm tracking-wide font-medium transition-colors duration-200 focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)]/50 px-1 py-1 rounded-sm ${
+                  className={`relative font-sans text-sm tracking-wide font-medium transition-colors duration-200 focus:outline-none focus:ring-1 focus:ring-brand-primary/50 px-1 py-1 rounded-sm ${
                     isActive
-                      ? "text-[var(--color-brand-primary)]"
-                      : "text-[var(--color-brand-text)]/80 hover:text-[var(--color-brand-primary)]"
+                      ? "text-brand-primary"
+                      : "text-brand-text/80 hover:text-brand-primary"
                   }`}
                 >
                   {link.label}
                   {isActive && (
                     <motion.span
                       layoutId="activeIndicator"
-                      className="absolute bottom-0 left-1 right-1 h-[1.5px] bg-[var(--color-brand-primary)]"
+                      className="absolute bottom-0 left-1 right-1 h-[1.5px] bg-brand-primary"
                       transition={{
                         type: "spring",
                         stiffness: 380,
@@ -164,7 +164,7 @@ export default function Navbar() {
           {/* زر الموبايل هامبرغر */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-xl border border-[var(--color-brand-border)]/85 bg-[var(--color-brand-white)] text-[var(--color-brand-text)] cursor-pointer z-50 relative"
+            className="lg:hidden p-2 rounded-xl border border-brand-border/85 bg-brand-white text-brand-text cursor-pointer z-50 relative"
             aria-label={isOpen ? "Stäng meny" : "Öppna meny"}
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
@@ -186,9 +186,9 @@ export default function Navbar() {
             role="navigation"
             aria-label="Mobilmeny"
             // أضفنا pointer-events-auto هنا لضمان وصول النقرات للروابط الداخلية دائماً
-            className="lg:hidden w-full bg-[var(--color-brand-bg)] border-b border-[var(--color-brand-border)] absolute top-full left-0 shadow-lg pointer-events-auto z-40"
+            className="lg:hidden w-full bg-brand-bg border-b border-brand-border absolute top-full left-0 shadow-lg pointer-events-auto z-40"
           >
-            <div className="px-5 py-6 flex flex-col gap-4 bg-[var(--color-brand-white)] border-t border-[var(--color-brand-border)]/50">
+            <div className="px-5 py-6 flex flex-col gap-4 bg-brand-white border-t border-brand-border/50">
               <nav className="flex flex-col gap-3">
                 {NAV_LINKS.map((link) => {
                   const cleanedHref = link.href.replace("#", "");
@@ -200,21 +200,21 @@ export default function Navbar() {
                       onClick={(e) => handleLinkClick(e, link.href)}
                       className={`flex items-center justify-between font-sans text-base font-semibold py-2 px-3 rounded-lg transition-colors cursor-pointer touch-latency ${
                         isActive
-                          ? "bg-[var(--color-brand-bg)] text-[var(--color-brand-primary)] pl-4"
-                          : "text-[var(--color-brand-text)]/90 hover:bg-[var(--color-brand-bg)]/50 hover:text-[var(--color-brand-primary)]"
+                          ? "bg-brand-bg text-brand-primary pl-4"
+                          : "text-brand-text/90 hover:bg-brand-bg/50 hover:text-brand-primary"
                       }`}
                     >
                       {link.label}
                       <ArrowRight
                         size={14}
-                        className={`opacity-40 transition-transform ${isActive ? "translate-x-1 text-[var(--color-brand-primary)] opacity-100" : ""}`}
+                        className={`opacity-40 transition-transform ${isActive ? "translate-x-1 text-brand-primary opacity-100" : ""}`}
                       />
                     </a>
                   );
                 })}
               </nav>
 
-              <div className="pt-4 border-t border-[var(--color-brand-border)]">
+              <div className="pt-4 border-t border-brand-border">
                 <Button
                   variant="primary"
                   size="md"

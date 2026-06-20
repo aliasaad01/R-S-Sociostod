@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Mail,
@@ -34,25 +34,21 @@ export default function EmailAssistant() {
       text: WHATS_APP_PREFILLS.forelasningar,
       subject: "Fråga om föreläsningar - R S Sociostöd",
       description: "Frågor om föreläsningar och utbildningsupplägg",
-      icon: (
-        <Presentation size={16} className="text-[var(--color-brand-primary)]" />
-      ),
+      icon: <Presentation size={16} className="text-brand-primary" />,
     },
     {
       label: "Tematräffar & workshops",
       text: WHATS_APP_PREFILLS.tematraffar,
       subject: "Fråga om tematräffar - R S Sociostöd",
       description: "Dialogbaserade träffar och gruppaktiviteter",
-      icon: <Users2 size={16} className="text-[var(--color-brand-primary)]" />,
+      icon: <Users2 size={16} className="text-brand-primary" />,
     },
     {
       label: "Offert & prisförslag",
       text: WHATS_APP_PREFILLS.priser,
       subject: "Förfrågan om offert - R S Sociostöd",
       description: "Begär offert eller ställ frågor om kostnader",
-      icon: (
-        <FileText size={16} className="text-[var(--color-brand-primary)]" />
-      ),
+      icon: <FileText size={16} className="text-brand-primary" />,
     },
     {
       label: "Anpassat upplägg",
@@ -60,25 +56,21 @@ export default function EmailAssistant() {
       subject: "Fråga om anpassat upplägg - R S Sociostöd",
       description:
         "Vi hjälper er att hitta rätt upplägg utifrån målgrupp och behov",
-      icon: <Sliders size={16} className="text-[var(--color-brand-primary)]" />,
+      icon: <Sliders size={16} className="text-brand-primary" />,
     },
     {
       label: "Utbildningsmaterial",
       text: WHATS_APP_PREFILLS.utbildningsmaterial,
       subject: "Fråga om utbildningsmaterial - R S Sociostöd",
       description: "Frågor om kompendier, deltagarguider och stödmaterial",
-      icon: (
-        <BookOpen size={16} className="text-[var(--color-brand-primary)]" />
-      ),
+      icon: <BookOpen size={16} className="text-brand-primary" />,
     },
     {
       label: "Övriga frågor",
       text: WHATS_APP_PREFILLS.frågor,
       subject: "Allmän förfrågan - R S Sociostöd",
       description: "Har du en annan fråga? Skicka ett meddelande till oss.",
-      icon: (
-        <QuestionIcon size={16} className="text-[var(--color-brand-primary)]" />
-      ),
+      icon: <QuestionIcon size={16} className="text-brand-primary" />,
     },
   ];
 
@@ -92,13 +84,13 @@ export default function EmailAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="w-80 max-w-[calc(100vw-32px)] bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] rounded-3xl overflow-hidden shadow-2xl mb-4"
+            className="w-80 max-w-[calc(100vw-32px)] bg-brand-white border border-brand-border rounded-3xl overflow-hidden shadow-2xl mb-4"
           >
             {/* ترويسة نافذة المساعد (Header) */}
-            <div className="bg-[var(--color-brand-primary)] p-5 text-white text-left relative flex items-center gap-3">
+            <div className="bg-brand-primary p-5 text-white text-left relative flex items-center gap-3">
               <div className="relative w-10 h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/25 shrink-0">
                 <Sparkles size={18} className="text-white animate-pulse" />
-                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-blue-400 border border-[var(--color-brand-primary)]" />
+                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-blue-400 border border-brand-primary" />
               </div>
 
               <div className="flex-1">
@@ -120,13 +112,13 @@ export default function EmailAssistant() {
             </div>
 
             {/* جسم نافذة المساعد يحتوي على الرسالة والخيارات (Body) */}
-            <div className="p-5 bg-[var(--color-brand-bg)]/40 max-h-[350px] overflow-y-auto">
+            <div className="p-5 bg-brand-bg/40 max-h-87.5 overflow-y-auto">
               {/* فقاعة الترحيب الذكية */}
-              <div className="bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] rounded-2xl rounded-tl-none p-4 text-left shadow-xs mb-5">
-                <p className="font-sans text-xs text-[var(--color-brand-text)] leading-relaxed">
+              <div className="bg-brand-white border border-brand-border rounded-2xl rounded-tl-none p-4 text-left shadow-xs mb-5">
+                <p className="font-sans text-xs text-brand-text leading-relaxed">
                   Hej 👋
                 </p>
-                <p className="font-sans text-xs text-[var(--color-brand-text)] leading-relaxed mt-1">
+                <p className="font-sans text-xs text-brand-text leading-relaxed mt-1">
                   Jag hjälper dig gärna att komma i kontakt med R S Sociostöd
                   via e-post. Välj ett ämne nedan så förbereder vi ditt
                   meddelande direkt. <br />
@@ -152,25 +144,25 @@ export default function EmailAssistant() {
                         x: 3,
                         backgroundColor: "var(--color-brand-white)",
                       }}
-                      className="flex items-center justify-between p-3 rounded-xl border border-[var(--color-brand-border)] bg-[var(--color-brand-white)]/60 hover:border-[var(--color-brand-primary)]/45 transition-colors text-left group focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-primary)]"
+                      className="flex items-center justify-between p-3 rounded-xl border border-brand-border bg-brand-white/60 hover:border-brand-primary/45 transition-colors text-left group focus:outline-none focus:ring-1 focus:ring-brand-primary"
                     >
                       {/* الأيقونة المخصصة الذكية المضافة حديثاً */}
-                      <div className="w-8 h-8 rounded-lg bg-[var(--color-brand-bg)] border border-[var(--color-brand-border)] flex items-center justify-center shrink-0 mr-3 group-hover:border-[var(--color-brand-primary)]/20 transition-colors">
+                      <div className="w-8 h-8 rounded-lg bg-brand-bg border border-brand-border flex items-center justify-center shrink-0 mr-3 transition-colors">
                         {opt.icon}
                       </div>
 
                       <div className="flex-1 pr-2">
-                        <span className="block font-sans font-semibold text-xs text-[var(--color-brand-text)]">
+                        <span className="block font-sans font-semibold text-xs text-brand-text">
                           {opt.label}
                         </span>
-                        <span className="block font-sans text-[10px] text-[var(--color-brand-text-secondary)] mt-0.5">
+                        <span className="block font-sans text-[10px] text-brand-text-secondary mt-0.5">
                           {opt.description}
                         </span>
                       </div>
 
                       <ChevronRight
                         size={14}
-                        className="text-[var(--color-brand-text-secondary)]/60 group-hover:text-[var(--color-brand-primary)] group-hover:translate-x-0.5 transition-all shrink-0"
+                        className="text-brand-text-secondary/60 group-hover:text-brand-primary group-hover:translate-x-0.5 transition-all shrink-0"
                       />
                     </motion.a>
                   );
@@ -179,11 +171,11 @@ export default function EmailAssistant() {
             </div>
 
             {/* شريط ذيل النافذة */}
-            <div className="px-5 py-3 border-t border-[var(--color-brand-border)] bg-[var(--color-brand-white)] flex items-center justify-between text-[10px] text-[var(--color-brand-text-secondary)]">
+            <div className="px-5 py-3 border-t border-brand-border bg-brand-white flex items-center justify-between text-[10px] text-brand-text-secondary">
               <span className="flex items-center gap-1 font-sans">
                 <HelpCircle size={11} /> Öppnas i ditt e-postprogram
               </span>
-              <span className="font-sans font-semibold text-[var(--color-brand-primary)] uppercase">
+              <span className="font-sans font-semibold text-brand-primary uppercase">
                 RS Sociostöd
               </span>
             </div>
@@ -203,7 +195,7 @@ export default function EmailAssistant() {
             ? { repeat: Infinity, duration: 2.5, ease: "easeOut" }
             : {}
         }
-        className="w-14 h-14 rounded-full bg-[var(--color-brand-primary)] text-white border border-[var(--color-brand-primary)]/20 flex items-center justify-center shadow-xl hover:opacity-90 transition-opacity cursor-pointer relative focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-primary)] focus:ring-offset-2"
+        className="w-14 h-14 rounded-full bg-brand-primary text-white border border-brand-primary/20 flex items-center justify-center shadow-xl hover:opacity-90 transition-opacity cursor-pointer relative focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2"
         aria-label="Öppna e-post assistent"
         aria-expanded={isOpen}
       >

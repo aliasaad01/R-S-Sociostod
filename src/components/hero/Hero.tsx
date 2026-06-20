@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "motion/react";
 import { ArrowRight, BookOpen, Sparkles } from "lucide-react";
 import Button from "../ui/Button";
@@ -25,7 +24,7 @@ export default function Hero() {
   return (
     <section
       id="hem"
-      className="relative pt-24 pb-16 overflow-hidden bg-gradient-to-b from-[#F2EAE0]/50 via-[var(--color-brand-bg)] to-[var(--color-brand-bg)] md:min-h-[calc(100vh-85px)] flex items-center"
+      className="relative pt-24 pb-16 overflow-hidden bg-linear-to-b from-[#F2EAE0]/50 via-brand-bg to-brand-bg md:min-h-[calc(100vh-85px)] flex items-center"
     >
       {/* خلفية شبكية ناعمة تضفي لمسة تصميم تحريرية راقية */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] select-none">
@@ -58,11 +57,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2 bg-[var(--color-brand-white)] border border-[var(--color-brand-border)] px-4 py-1.5 rounded-full text-[var(--color-brand-primary)] text-[9px] sm:text-xs font-bold tracking-widest uppercase mb-5 w-fit shadow-xs"
+              className="inline-flex items-center gap-2 bg-brand-white border border-brand-border px-4 py-1.5 rounded-full text-brand-primary text-[9px] sm:text-xs font-bold tracking-widest uppercase mb-5 w-fit shadow-xs"
             >
               <Sparkles
                 size={12}
-                className="text-[var(--color-brand-primary)] animate-pulse"
+                className="text-brand-primary animate-pulse"
               />
               <span>Samhällsförståelse &amp; trygg myndighetskontakt</span>
             </motion.div>
@@ -75,10 +74,10 @@ export default function Hero() {
                 delay: 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="title-font text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-[var(--color-brand-text)] font-medium leading-[1.15] tracking-tight uppercase"
+              className="title-font text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-brand-text font-medium leading-[1.15] tracking-tight uppercase"
             >
               KUNSKAP SOM STÄRKER.
-              <span className="block italic text-[var(--color-brand-primary)] mt-1 font-light normal-case">
+              <span className="block italic text-brand-primary mt-1 font-light normal-case">
                 Trygghet genom förståelse.
               </span>
             </motion.h1>
@@ -91,7 +90,7 @@ export default function Hero() {
                 delay: 0.2,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="font-sans text-[var(--color-brand-text-secondary)] text-sm sm:text-base md:text-sm lg:text-lg leading-relaxed mt-5 mb-4 max-w-xl font-light"
+              className="font-sans text-brand-text-secondary text-sm sm:text-base md:text-sm lg:text-lg leading-relaxed mt-5 mb-4 max-w-xl font-light"
             >
               <span className="font-bold">R S Sociostöd</span> erbjuder
               kundanpassade föreläsningar och utbildningsinsatser som gör
@@ -106,7 +105,7 @@ export default function Hero() {
                 delay: 0.2,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="font-sans text-[var(--color-brand-text-secondary)] text-sm sm:text-base md:text-sm lg:text-lg leading-relaxed mt-0 mb-6 max-w-xl font-light"
+              className="font-sans text-brand-text-secondary text-sm sm:text-base md:text-sm lg:text-lg leading-relaxed mt-0 mb-6 max-w-xl font-light"
             >
               Genom pedagogiska utbildningar vill vi stärka människors
               förståelse för hur samhället fungerar och skapa större trygghet i
@@ -120,7 +119,7 @@ export default function Hero() {
                 delay: 0.2,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="font-sans text-[var(--color-brand-text-secondary)] text-sm sm:text-base md:text-sm lg:text-lg leading-relaxed mt-0 mb-6 max-w-xl font-light"
+              className="font-sans text-brand-text-secondary text-sm sm:text-base md:text-sm lg:text-lg leading-relaxed mt-0 mb-6 max-w-xl font-light"
             >
               Målet är inte att deltagarna ska kunna allt, utan att de ska känna
               sig tryggare, veta vart de kan vända sig och våga ta nästa steg
@@ -159,39 +158,6 @@ export default function Hero() {
                 <span>Våra teman</span>
               </Button>
             </motion.div>
-
-            {/* قسم الإحصائيات السريعة المعدل ليصبح مثالياً وجذاباً على التابلت */}
-            {/* <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="grid grid-cols-3 gap-4 md:gap-3 lg:gap-6 pt-4 mt-4 border-t border-[var(--color-brand-border)]/60 text-center md:text-start"
-            >
-              <div>
-                <span className="block title-font text-xl sm:text-2xl md:text-xl lg:text-3xl text-[var(--color-brand-primary)] font-medium">
-                  100%
-                </span>
-                <span className="block text-[9px] sm:text-xs md:text-[9px] lg:text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-text-secondary)] mt-1">
-                  Målgruppsanpassat
-                </span>
-              </div>
-              <div>
-                <span className="block title-font text-xl sm:text-2xl md:text-xl lg:text-3xl text-[var(--color-brand-primary)] font-medium">
-                  Socionom
-                </span>
-                <span className="block text-[9px] sm:text-xs md:text-[9px] lg:text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-text-secondary)] mt-1">
-                  Facklig kompetens
-                </span>
-              </div>
-              <div>
-                <span className="block title-font text-xl sm:text-2xl md:text-xl lg:text-3xl text-[var(--color-brand-primary)] font-medium">
-                  SFI/SO
-                </span>
-                <span className="block text-[9px] sm:text-xs md:text-[9px] lg:text-xs font-semibold uppercase tracking-wider text-[var(--color-brand-text-secondary)] mt-1">
-                  Komplementärt stöd
-                </span>
-              </div>
-            </motion.div> */}
           </div>
 
           {/* العمود الأيمن: حاوية صورة الهيرو التي تم ضبط أبعادها لتعطي مظهراً فخماً على التابلت */}
@@ -204,7 +170,7 @@ export default function Hero() {
                 delay: 0.2,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="relative w-full aspect-square sm:aspect-[4/5] md:aspect-[4/5] rounded-3xl overflow-hidden border border-[var(--color-brand-border)]/80 shadow-md max-w-sm md:max-w-none"
+              className="relative w-full aspect-square sm:aspect-4/5 md:aspect-4/5 rounded-3xl overflow-hidden border border-brand-border/80 shadow-md max-w-sm md:max-w-none"
             >
               <img
                 src={IMAGES.heroLifestyle}
@@ -219,16 +185,16 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute bottom-4 left-4 right-4 lg:bottom-6 lg:left-6 lg:right-6 backdrop-blur-md bg-[var(--color-brand-white)]/80 border border-[var(--color-brand-border)] rounded-2xl p-3 lg:p-4 flex gap-3 lg:gap-4 items-center shadow-lg"
+                className="absolute bottom-4 left-4 right-4 lg:bottom-6 lg:left-6 lg:right-6 backdrop-blur-md bg-brand-white/80 border border-brand-border rounded-2xl p-3 lg:p-4 flex gap-3 lg:gap-4 items-center shadow-lg"
               >
-                <div className="w-9 h-9 lg:w-10 lg:h-10 rounded-full bg-[var(--color-brand-primary)]/10 flex items-center justify-center text-[var(--color-brand-primary)] shrink-0">
+                <div className="w-9 h-9 lg:w-10 lg:h-10 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
                   <span className="text-lg lg:text-xl">♡</span>
                 </div>
                 <div>
-                  <h4 className="title-font text-[var(--color-brand-text)] font-bold text-xs lg:text-sm tracking-wide">
+                  <h4 className="title-font text-brand-text font-bold text-xs lg:text-sm tracking-wide">
                     Hjälp med allmän information
                   </h4>
-                  <p className="font-sans text-[10px] lg:text-[11px] text-[var(--color-brand-text-secondary)] leading-normal mt-0.5">
+                  <p className="font-sans text-[10px] lg:text-[11px] text-brand-text-secondary leading-normal mt-0.5">
                     Att göra information enklare, tydligare och mer tillgänglig.
                   </p>
                 </div>

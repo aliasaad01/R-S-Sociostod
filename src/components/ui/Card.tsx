@@ -28,7 +28,7 @@ export default function Card({
           ? { y: -4, boxShadow: "0 12px 30px -10px rgba(201, 147, 59, 0.15)" }
           : undefined
       }
-      className={`bg-[var(--color-brand-card)] border border-[var(--color-brand-border)] rounded-2xl p-6 sm:p-8 transition-shadow duration-300 ${className}`}
+      className={`bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8 transition-shadow duration-300 ${className}`}
     >
       {children}
     </motion.div>
