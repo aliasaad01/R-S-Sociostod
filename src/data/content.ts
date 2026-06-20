@@ -50,10 +50,9 @@ export const THEME_ITEMS: ThemeItem[] = [
       "Vi gör det lättare att förstå hur samhället fungerar, vilka rättigheter och skyldigheter vi har och vart man kan vända sig för information, stöd och service.", //
     iconName: "Globe",
     highlights: [
-      "Demokratins grundpelare",
-      "Rättigheter och skyldigheter",
-      "Kommunal och statlig service",
-      "Vägar till rätt instans i samhället",
+      "Dina rättigheter och skyldigheter",
+      "Hjälp och service från kommun och stat",
+      "Vart du kan vända dig för att få hjälp",
     ],
   },
   {
@@ -63,10 +62,10 @@ export const THEME_ITEMS: ThemeItem[] = [
       "Vi stärker tryggheten i kontakten med myndigheter genom ökad förståelse för information, beslut och den egna möjligheten att vara delaktig.", //
     iconName: "ShieldCheck",
     highlights: [
-      "Bemötande och rättssäkerhet",
-      "Att förstå myndighetsbeslut",
-      "Kommunikationsvägar och verktyg",
-      "Individens role och delaktighet",
+      "Att bli bemött på ett bra och rättvist sätt",
+      "Att förstå beslut från myndigheter",
+      "Hur du kan kontakta myndigheter",
+      "Hur du kan vara delaktig och påverka",
     ],
   },
   {
@@ -76,10 +75,9 @@ export const THEME_ITEMS: ThemeItem[] = [
       "Vi hjälper människor att hitta rätt i samhället genom kunskap om offentliga verksamheter, samhällsfunktioner och praktiska vägar till information och stöd.", //
     iconName: "FileText",
     highlights: [
-      "Lagar och förordningar i praktiken",
-      "Välfärdsstatens uppbyggnad",
-      "Svensk arbetsmarknad & skattesystem",
-      "Praktisk orientering i vardagen",
+      "Viktiga lagar och regler i vardagen",
+      "Hur välfärden i Sverige fungerar",
+      "Praktisk information för vardagslivet",
     ],
   },
 ];

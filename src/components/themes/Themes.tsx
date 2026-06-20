@@ -67,9 +67,9 @@ export default function Themes() {
           transition={{ duration: 0.6 }}
           className="font-sans text-[var(--color-brand-text-secondary)] text-center text-lg max-w-2xl mx-auto mb-12 font-light"
         >
-          Vi fokuserar på att göra komplicerad information lättillgänglig och
-          tydlig. Våra insatser skapar trygghet och bygger starka broar för ökad
-          integration och förståelse.
+          Vi förklarar viktig information på ett enkelt och tydligt sätt. Vårt
+          mål är att skapa trygghet, öka förståelsen och göra det lättare att
+          hitta rätt stöd och information.
         </motion.p>
 
         {/* شبكة البطاقات مع تفعيل تأثير الحركة المتتابع ذو المظهر الاحترافي */}
