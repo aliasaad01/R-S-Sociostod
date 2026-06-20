@@ -1,4 +1,5 @@
 import { Accessibility, BookOpen, Heart } from "lucide-react";
+import { motion } from "motion/react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import { BRAND_INFO } from "../../data/content";
@@ -34,8 +35,14 @@ export default function About() {
 
         {/* كتلة العرض والتعريف الشخصي بالمؤسسة */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
-          {/* العمود الأيسر: الصورة الشخصية مع إطارات الإزاحة الجمالية المتقاطعة */}
-          <div className="col-span-1 lg:col-span-5 flex justify-center lg:justify-start">
+          {/* العمود الأيسر: الصورة الشخصية مع أنيميشن التلاشي والصعود */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="col-span-1 lg:col-span-5 flex justify-center lg:justify-start"
+          >
             <div className="relative max-w-sm sm:max-w-md w-full">
               {/* حدود زخرفية خلفية فخمة تلتف حول الصورة */}
               <div className="absolute -inset-4 rounded-3xl border bg-brand-primary/5 transform rotate-1 scale-102 pointer-events-none" />
@@ -51,10 +58,16 @@ export default function About() {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* العمود الأيمن: النص التحريري والرسالة الرسمية للعلامة التجارية */}
-          <div className="col-span-1 lg:col-span-7 text-left flex flex-col justify-center">
+          {/* العمود الأيمن: النص التحريري مع أنيميشن التلاشي الجانبي التدريجي */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="col-span-1 lg:col-span-7 text-left flex flex-col justify-center"
+          >
             <h3 className="title-font text-2xl sm:text-3xl md:text-4xl text-brand-text font-medium leading-tight mb-6">
               Kunskap som gör skillnad.
             </h3>
@@ -73,7 +86,7 @@ export default function About() {
               <p>
                 Det väckte en vilja hos mig att bidra till ökad kunskap,
                 trygghet och förståelse. Därför startade jag R S Sociostöd för
-                att göra samhällsinformation mer tillgänglig och stärka
+                att göra samhällsinformation more tillgänglig och stärka
                 människors möjligheter att känna sig trygga och delaktiga i
                 samhället.
               </p>
@@ -95,7 +108,7 @@ export default function About() {
               </span>
             </div>
 
-            {/* التنبيه القانوني الإلزامي والضروري جداً لحماية أعمال المؤسسة بالسويد */}
+            {/* التنبيه القانوني الإلزامي */}
             <div className="mt-8 bg-brand-border/30 border border-brand-border rounded-xl p-4 flex items-start gap-3">
               <div className="w-5 h-5 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0 mt-0.5">
                 <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
@@ -109,7 +122,7 @@ export default function About() {
                 rådgivning eller stöd i enskilda ärenden.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </Container>
     </section>
