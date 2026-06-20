@@ -22,7 +22,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
     name: "R S Sociostöd",
     description: pageDescription,
     url: siteUrl,
-    logo: `${siteUrl}/favicon.png`,
+    logo: `${siteUrl}/logo.png`,
     founder: {
       "@type": "Person",
       name: "Rascha Skef",
