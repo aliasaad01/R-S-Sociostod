@@ -86,7 +86,7 @@ export default function About() {
               <p>
                 Det väckte en vilja hos mig att bidra till ökad kunskap,
                 trygghet och förståelse. Därför startade jag R S Sociostöd för
-                att göra samhällsinformation more tillgänglig och stärka
+                att göra samhällsinformation mer tillgänglig och stärka
                 människors möjligheter att känna sig trygga och delaktiga i
                 samhället.
               </p>
