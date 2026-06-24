@@ -15,7 +15,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   const pageDescription =
     "Professionell studievägledning, föreläsningar och studiematerial i samhällskunskap och integration av socionom Rascha Skef. Skapa trygghet hos er målgrupp.";
   const siteUrl = "https://rssociostod.se";
-  const ogImageUrl = `${siteUrl}/og-image.jpg`;
+  const ogImageUrl = `${siteUrl}/og-image.png`;
 
   const ldJsonData = {
     "@context": "https://schema.org",

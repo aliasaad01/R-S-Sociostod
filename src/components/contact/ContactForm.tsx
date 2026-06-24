@@ -101,9 +101,9 @@ export default function ContactForm() {
             </h3>
 
             <p className="font-sans text-brand-text-secondary text-base leading-relaxed mb-10 font-light">
-              Fyll i formuläret så återkommer jag snarast för att diskutera ett
-              skräddarsytt upplägg som passar perfekt för just er organisation
-              och målgrupp.
+              Fyll i formuläret så återkommer jag inom kort för att diskutera
+              ett skräddarsytt upplägg som passar perfekt för just er
+              organisation och målgrupp
             </p>
 
             {/* خلايا قنوات التواصل المهيكلة بعناية */}
