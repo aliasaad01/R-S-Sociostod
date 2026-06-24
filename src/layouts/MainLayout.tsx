@@ -3,6 +3,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import WhatsAppAssistant from "../components/whatsapp/WhatsAppAssistant";
+import CookieConsent from "../components/cookieConsent/CookieConsent";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -91,6 +92,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
         </main>
 
         <Footer />
+        <CookieConsent />
 
         {/* أداة التواصل العائمة */}
         <WhatsAppAssistant />

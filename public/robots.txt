@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rssociostod.se/sitemap.xml
