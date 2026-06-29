@@ -178,6 +178,7 @@ export default function Hero() {
                 className="w-full h-full object-cover select-none pointer-events-none"
                 referrerPolicy="no-referrer"
                 loading="eager"
+                fetchPriority="high"
               />
 
               {/* البطاقة العائمة الأنيقة - تم تصغير الفراغات والنصوص برفق على مقاس التابلت لتجنب التكدس */}
