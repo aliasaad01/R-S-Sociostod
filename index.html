@@ -1,21 +1,6 @@
 <!doctype html>
 <html lang="sv" class="scroll-smooth">
   <head>
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-MVM6KD5Z");
-    </script>
-    <!-- End Google Tag Manager -->
-
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -24,16 +9,14 @@
     <meta name="author" content="Rascha Skef" />
     <meta name="robots" content="index, follow" />
 
-    <!-- العناوين والوصف الأساسي الثابت لمحركات البحث ومواقع التواصل -->
     <title>
       R S Sociostöd | Föreläsningar, Samhällspedagogik & Myndighetskontakt
     </title>
     <meta
       name="description"
-      content="Professionell studievägledning, föreläsningar och studiematerial i samhällskunskap och integration av socionom Rascha Skef. Skapa trygghet hos er målgrupp."
+      content="Professionell studievägledning, föreläsningar and studiematerial i samhällskunskap och integration av socionom Rascha Skef. Skapa trygghet hos er målgrupp."
     />
 
-    <!-- وسوم الـ Open Graph للواتساب وفيس بوك -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.rssociostod.se" />
     <meta property="og:site_name" content="R S Sociostöd" />
@@ -57,7 +40,6 @@
     />
     <meta property="og:locale" content="sv_SE" />
 
-    <!-- وسوم منصة X (تويتر سابقاً) -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://www.rssociostod.se" />
     <meta
@@ -84,24 +66,54 @@
       rel="stylesheet"
     />
 
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-2TC754H374"
-    ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      function loadTrackingScripts() {
+        if (window.scriptsLoaded) return;
+        window.scriptsLoaded = true;
+
+        // 1. Google Tag Manager (تحميل السكريبت الأساسي)
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-MVM6KD5Z");
+
+        // 2. Google Analytics (gtag.js)
+        var gaScript = document.createElement("script");
+        gaScript.async = true;
+        gaScript.src =
+          "https://www.googletagmanager.com/gtag/js?id=G-2TC754H374";
+        document.head.appendChild(gaScript);
+
+        gaScript.onload = function () {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", "G-2TC754H374", { anonymize_ip: true });
+        };
       }
-      gtag("js", new Date());
-      gtag("config", "G-2TC754H374", { anonymize_ip: true });
+
+      // تشغيل السكريبتات تلقائياً بعد 3 ثوانٍ من استقرار الصفحة، أو فوراً عند أول حركة للمستخدم
+      window.addEventListener("load", function () {
+        setTimeout(loadTrackingScripts, 3000);
+      });
+      window.addEventListener("scroll", loadTrackingScripts, { passive: true });
+      window.addEventListener("touchstart", loadTrackingScripts, {
+        passive: true,
+      });
     </script>
   </head>
 
   <body
     class="antialiased selection:bg-brand-primary selection:text-white bg-brand-bg"
   >
-    <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-MVM6KD5Z"
@@ -110,8 +122,6 @@
         style="display: none; visibility: hidden"
       ></iframe
     ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <div id="root"></div>
     <script type="module" src="src/main.tsx"></script>
   </body>
