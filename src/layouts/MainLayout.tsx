@@ -14,7 +14,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
     "R S Sociostöd | Föreläsningar, Samhällspedagogik & Myndighetskontakt";
   const pageDescription =
     "Professionell studievägledning, föreläsningar och studiematerial i samhällskunskap och integration av socionom Rascha Skef. Skapa trygghet hos er målgrupp.";
-  const siteUrl = "https://rssociostod.se";
+  const siteUrl = "https://www.rssociostod.se";
   const ogImageUrl = `${siteUrl}/og-image.png`;
 
   const ldJsonData = {
