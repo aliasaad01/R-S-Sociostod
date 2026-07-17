@@ -41,6 +41,7 @@ type ContactFormFields = z.infer<typeof contactSchema>;
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successToast, setSuccessToast] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const {
     register,
@@ -58,22 +59,54 @@ export default function ContactForm() {
   });
 
   const onSubmit = async (data: ContactFormFields) => {
-    // جدار حماية إضافي لمنع تكرار الإرسال في الخلفية
     if (isSubmitting) return;
 
     setIsSubmitting(true);
+    setErrorMessage(null);
 
-    // محاكاة تأخير زمني واقعي لاعتماد وإرسال البيانات عبر السيرفر
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    const accessKey = import.meta.env?.VITE_WEB3FORMS_ACCESS_KEY;
 
-    setIsSubmitting(false);
-    setSuccessToast(true);
-    reset();
+    if (!accessKey) {
+      setErrorMessage("Konfigurationsfel: Access Key saknas.");
+      setIsSubmitting(false);
+      return;
+    }
 
-    // إخفاء إشعار النجاح تلقائياً بعد مرور 5 ثوانٍ
-    setTimeout(() => {
-      setSuccessToast(false);
-    }, 5000);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `Ny intresseanmälan från ${data.name} (${data.organisation})`,
+          from_name: data.name,
+          ...data,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSuccessToast(true);
+        reset();
+        // إخفاء إشعار النجاح تلقائياً بعد مرور 5 ثوانٍ
+        setTimeout(() => {
+          setSuccessToast(false);
+        }, 5000);
+      } else {
+        setErrorMessage("Något gick fel. Vänligen försök igen senare.");
+      }
+    } catch (error) {
+      setErrorMessage(
+        "Kunde inte skicka meddelandet. Kontrollera din internetanslutning.",
+      );
+      console.error("Form submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -191,6 +224,14 @@ export default function ContactForm() {
                 onSubmit={handleSubmit(onSubmit)}
                 className="space-y-6 text-left"
               >
+                {/* رسالة الخطأ العامة في حال فشل الاتصال بالسيرفر أو غياب المفتاح */}
+                {errorMessage && (
+                  <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm flex items-start gap-2">
+                    <AlertCircle className="shrink-0 mt-0.5" size={16} />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
                 {/* حقل الاسم بالكامل */}
                 <div>
                   <label
@@ -354,7 +395,7 @@ export default function ContactForm() {
         </div>
       </Container>
 
-      {/* نافذة نوتس النجاح المنبثقة السفلى مع دعم الحركات المتناهية الصغر AnimatePresence */}
+      {/* نافذة نوتس النجاح المنبثقة السفلى */}
       <AnimatePresence>
         {successToast && (
           <motion.div
