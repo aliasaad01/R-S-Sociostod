@@ -19,7 +19,7 @@ export const NAV_LINKS = [
 
 export const IMAGES = {
   heroLifestyle: "/images/hero.webp",
-  raschaPortrait: "/images/rascha.webp",
+  raschaPortrait: "/images/rascha-1.webp",
 };
 
 export const WHATS_APP_PREFILLS = {

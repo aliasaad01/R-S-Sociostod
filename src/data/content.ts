@@ -8,12 +8,12 @@ import {
 
 export const BRAND_INFO = {
   name: "R S Sociostöd",
-  tagline: "Kunskap som stärker. Trygghet genom förståelse.", // التعديل المطلوب للوغو
+  tagline: "Kunskap som stärker. Trygghet genom förståelse.",
   founder: "Rascha Skef",
-  role: "Socionom & Grundare", //
-  email: "info@rssociostod.se", //
-  instagram: "@rs.sociostod", //
-  facebook: "R S Sociostöd", //
+  role: "Socionom & Grundare",
+  email: "info@rssociostod.se",
+  instagram: "@rs.sociostod",
+  facebook: "R S Sociostöd",
   phoneWhatsApp: "+46720444486",
   logoAlt: "R S Sociostöd Logo – Din guide vid myndighetskontakt",
 };
