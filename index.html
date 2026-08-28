@@ -66,12 +66,25 @@
       rel="stylesheet"
     />
 
- <script>
+    <script>
+      // 1. Google Consent Mode v2 - الحالة الافتراضية (حظر حتى اختيار الزائر)
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+
+      gtag("consent", "default", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+      });
+
       function loadTrackingScripts() {
         if (window.scriptsLoaded) return;
         window.scriptsLoaded = true;
 
-        // Google Tag Manager (تحميل السكريبت الأساسي فقط)
+        // 2. Google Tag Manager
         (function (w, d, s, l, i) {
           w[l] = w[l] || [];
           w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -82,9 +95,21 @@
           j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
           f.parentNode.insertBefore(j, f);
         })(window, document, "script", "dataLayer", "GTM-MVM6KD5Z");
+
+        // 3. Google Analytics 4 (مع المعرّف الصحيح G-B6LD1G6BVT)
+        var gaScript = document.createElement("script");
+        gaScript.async = true;
+        gaScript.src =
+          "https://www.googletagmanager.com/gtag/js?id=G-B6LD1G6BVT";
+        document.head.appendChild(gaScript);
+
+        gaScript.onload = function () {
+          gtag("js", new Date());
+          gtag("config", "G-B6LD1G6BVT", { anonymize_ip: true });
+        };
       }
 
-      // تشغيل GTM تلقائياً بعد 3 ثوانٍ أو فوراً عند أول تفاعل للمستخدم
+      // تشغيل السكريبتات بعد 3 ثوانٍ أو عند التفاعل
       window.addEventListener("load", function () {
         setTimeout(loadTrackingScripts, 3000);
       });

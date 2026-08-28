@@ -1,23 +1,39 @@
 import React, { useState, useEffect } from "react";
 
-// توسعة واجهة Window لتحديد أنواع gtag و dataLayer بدقة
-declare global {
-  interface Window {
-    dataLayer?: Record<string, unknown>[];
-    gtag?: (
-      command: "consent",
-      action: "update",
-      params: {
-        analytics_storage: "granted" | "denied";
-        ad_storage: "granted" | "denied";
-        ad_user_data: "granted" | "denied";
-        ad_personalization: "granted" | "denied";
-      },
-    ) => void;
-  }
+type ConsentStatus = "granted" | "denied";
+
+interface ConsentParams {
+  analytics_storage: ConsentStatus;
+  ad_storage: ConsentStatus;
+  ad_user_data: ConsentStatus;
+  ad_personalization: ConsentStatus;
 }
 
-type ConsentStatus = "granted" | "denied";
+type GtagCommand = "consent" | "config" | "event" | "js";
+
+interface DataLayerEvent {
+  event?: string;
+  [key: string]: unknown;
+}
+
+// توسعة واجهزة Window بأنواع صارمة 100% بدون أي استخدام لـ any
+declare global {
+  interface Window {
+    dataLayer?: (DataLayerEvent | unknown[])[];
+    gtag?: {
+      (
+        command: "consent",
+        action: "default" | "update",
+        params: ConsentParams,
+      ): void;
+      (
+        command: GtagCommand,
+        action: string,
+        params?: Record<string, unknown>,
+      ): void;
+    };
+  }
+}
 
 const updateConsentState = (isAccepted: boolean): void => {
   if (typeof window !== "undefined") {
@@ -32,6 +48,18 @@ const updateConsentState = (isAccepted: boolean): void => {
         ad_user_data: status,
         ad_personalization: status,
       });
+    } else {
+      // Fallback مباشر لـ dataLayer في حال عدم توفر gtag كـ function بعد
+      window.dataLayer.push([
+        "consent",
+        "update",
+        {
+          analytics_storage: status,
+          ad_storage: status,
+          ad_user_data: status,
+          ad_personalization: status,
+        },
+      ]);
     }
 
     window.dataLayer.push({
