@@ -66,12 +66,12 @@
       rel="stylesheet"
     />
 
-    <script>
+ <script>
       function loadTrackingScripts() {
         if (window.scriptsLoaded) return;
         window.scriptsLoaded = true;
 
-        // 1. Google Tag Manager (تحميل السكريبت الأساسي)
+        // Google Tag Manager (تحميل السكريبت الأساسي فقط)
         (function (w, d, s, l, i) {
           w[l] = w[l] || [];
           w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -82,25 +82,9 @@
           j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
           f.parentNode.insertBefore(j, f);
         })(window, document, "script", "dataLayer", "GTM-MVM6KD5Z");
-
-        // 2. Google Analytics (gtag.js)
-        var gaScript = document.createElement("script");
-        gaScript.async = true;
-        gaScript.src =
-          "https://www.googletagmanager.com/gtag/js?id=G-B6LD1G6BVT";
-        document.head.appendChild(gaScript);
-
-        gaScript.onload = function () {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          gtag("js", new Date());
-          gtag("config", "G-B6LD1G6BVT", { anonymize_ip: true });
-        };
       }
 
-      // تشغيل السكريبتات تلقائياً بعد 3 ثوانٍ من استقرار الصفحة، أو فوراً عند أول حركة للمستخدم
+      // تشغيل GTM تلقائياً بعد 3 ثوانٍ أو فوراً عند أول تفاعل للمستخدم
       window.addEventListener("load", function () {
         setTimeout(loadTrackingScripts, 3000);
       });
