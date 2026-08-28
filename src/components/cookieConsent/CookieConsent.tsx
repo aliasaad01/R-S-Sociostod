@@ -1,22 +1,68 @@
 import React, { useState, useEffect } from "react";
 
-export default function CookieConsent() {
-  const [isVisible, setIsVisible] = useState(false);
+// توسعة واجهة Window لتحديد أنواع gtag و dataLayer بدقة
+declare global {
+  interface Window {
+    dataLayer?: Record<string, unknown>[];
+    gtag?: (
+      command: "consent",
+      action: "update",
+      params: {
+        analytics_storage: "granted" | "denied";
+        ad_storage: "granted" | "denied";
+        ad_user_data: "granted" | "denied";
+        ad_personalization: "granted" | "denied";
+      },
+    ) => void;
+  }
+}
+
+type ConsentStatus = "granted" | "denied";
+
+const updateConsentState = (isAccepted: boolean): void => {
+  if (typeof window !== "undefined") {
+    window.dataLayer = window.dataLayer || [];
+
+    const status: ConsentStatus = isAccepted ? "granted" : "denied";
+
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", {
+        analytics_storage: status,
+        ad_storage: status,
+        ad_user_data: status,
+        ad_personalization: status,
+      });
+    }
+
+    window.dataLayer.push({
+      event: isAccepted ? "cookie_consent_accepted" : "cookie_consent_declined",
+    });
+  }
+};
+
+export default function CookieConsent(): React.JSX.Element | null {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem("cookie_consent_rs");
+    const consent: string | null = localStorage.getItem(
+      "cookie_consent_asbygg",
+    );
     if (!consent) {
       setIsVisible(true);
+    } else {
+      updateConsentState(consent === "accepted");
     }
   }, []);
 
-  const handleAccept = () => {
-    localStorage.setItem("cookie_consent_rs", "accepted");
+  const handleAccept = (): void => {
+    localStorage.setItem("cookie_consent_asbygg", "accepted");
+    updateConsentState(true);
     setIsVisible(false);
   };
 
-  const handleDecline = () => {
-    localStorage.setItem("cookie_consent_rs", "declined");
+  const handleDecline = (): void => {
+    localStorage.setItem("cookie_consent_asbygg", "declined");
+    updateConsentState(false);
     setIsVisible(false);
   };
 
