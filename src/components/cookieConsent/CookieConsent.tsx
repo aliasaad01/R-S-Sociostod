@@ -45,7 +45,7 @@ export default function CookieConsent(): React.JSX.Element | null {
 
   useEffect(() => {
     const consent: string | null = localStorage.getItem(
-      "cookie_consent_asbygg",
+      "cookie_consent_rssociostod",
     );
     if (!consent) {
       setIsVisible(true);
@@ -55,13 +55,13 @@ export default function CookieConsent(): React.JSX.Element | null {
   }, []);
 
   const handleAccept = (): void => {
-    localStorage.setItem("cookie_consent_asbygg", "accepted");
+    localStorage.setItem("cookie_consent_rssociostod", "accepted");
     updateConsentState(true);
     setIsVisible(false);
   };
 
   const handleDecline = (): void => {
-    localStorage.setItem("cookie_consent_asbygg", "declined");
+    localStorage.setItem("cookie_consent_rssociostod", "declined");
     updateConsentState(false);
     setIsVisible(false);
   };
