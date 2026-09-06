@@ -16,7 +16,6 @@
 - **Smooth Micro-interactions:** Fluid scroll-triggered entrance animations driven by Framer Motion to enhance visual engagement.
 - **Built-in Trust Indicators:** Elegant presentation of success metrics, custom client testimonials, and credentials badges.
 - **Analytics & Event Tracking:** Pre-configured Google Analytics (`gtag`) hooks to track user conversions on high-intent CTA buttons.
-- **100% Native RTL Layout:** Engineered from the ground up for Arabic-speaking audiences with perfect typography and spacing.
 
 ---
 
