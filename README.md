@@ -65,7 +65,7 @@ rssociostod/
 ```bash
 
 git clone https://github.com/aliasaad01/R-S-Sociostod.git
-cd amBean
+cd R-S-Sociostod
 
 npm install
 npm run dev
